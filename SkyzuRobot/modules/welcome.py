@@ -4,8 +4,8 @@ import re
 import time
 from functools import partial
 from io import BytesIO
-import SkyzuRobot.modules.sql.welcome_sql as sql
-from SkyzuRobot import (
+import KyyRobot.modules.sql.welcome_sql as sql
+from KyyRobot import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -15,19 +15,19 @@ from SkyzuRobot import (
     LOGGER,
     dispatcher,
 )
-from SkyzuRobot.modules.helper_funcs.chat_status import (
+from KyyRobot.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
     user_admin,
 )
-from SkyzuRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from SkyzuRobot.modules.helper_funcs.msg_types import get_welcome_type
-from SkyzuRobot.modules.helper_funcs.handlers import MessageHandlerChecker
-from SkyzuRobot.modules.helper_funcs.string_handling import (
+from KyyRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from KyyRobot.modules.helper_funcs.msg_types import get_welcome_type
+from KyyRobot.modules.helper_funcs.handlers import MessageHandlerChecker
+from KyyRobot.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_parser,
 )
-from SkyzuRobot.modules.log_channel import loggable
-from SkyzuRobot.modules.sql.global_bans_sql import is_user_gbanned
+from KyyRobot.modules.log_channel import loggable
+from KyyRobot.modules.sql.global_bans_sql import is_user_gbanned
 from telegram import (
     ChatPermissions,
     InlineKeyboardButton,
