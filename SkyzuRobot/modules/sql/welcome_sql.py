@@ -2,8 +2,8 @@ import random
 import threading
 from typing import Union
 
-from SkyzuRobot.modules.helper_funcs.msg_types import Types
-from SkyzuRobot.modules.sql import BASE, SESSION
+from KyyRobot.modules.helper_funcs.msg_types import Types
+from KyyRobot.modules.sql import BASE, SESSION
 from sqlalchemy import BigInteger, Boolean, Column, Integer, String, UnicodeText
 
 DEFAULT_WELCOME_MESSAGES = [
