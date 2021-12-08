@@ -2,8 +2,8 @@ import html
 import re
 from typing import Optional
 
-from SkyzuRobot import LOGGER, TIGERS, dispatcher
-from SkyzuRobot.modules.helper_funcs.chat_status import (
+from KyyRobot import LOGGER, TIGERS, dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     connection_status,
@@ -11,12 +11,12 @@ from SkyzuRobot.modules.helper_funcs.chat_status import (
     user_admin,
     user_admin_no_reply,
 )
-from SkyzuRobot.modules.helper_funcs.extraction import (
+from KyyRobot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from SkyzuRobot.modules.helper_funcs.string_handling import extract_time
-from SkyzuRobot.modules.log_channel import loggable
+from KyyRobot.modules.helper_funcs.string_handling import extract_time
+from KyyRobot.modules.log_channel import loggable
 from telegram import (
     Bot, 
     Chat, 
