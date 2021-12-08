@@ -1,6 +1,6 @@
 import io
-from SkyzuRobot.events import register
-from SkyzuRobot import telethn as tbot
+from KyyRobot.events import register
+from KyyRobot import telethn as tbot
 from telethon import types
 from telethon import events
 from telethon.tl import functions
