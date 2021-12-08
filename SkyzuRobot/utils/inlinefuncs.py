@@ -22,22 +22,22 @@ from pyrogram.types import (CallbackQuery,
                             InputTextMessageContent)
 from search_engine_parser import GoogleSearch
 
-from SkyzuRobot import (
+from KyyRobot import (
     DEV_USERS,
     EVENT_LOGS, 
     BOT_USERNAME,
     ubot2,
 )
-from SkyzuRobot import pbot as app 
-from SkyzuRobot import arq
-from SkyzuRobot.services.keyboard import Ikb
-from SkyzuRobot.utils.pluginhelper import convert_seconds_to_minutes as time_convert, fetch
-from SkyzuRobot.services.tasks import _get_tasks_text, all_tasks, rm_task
-from SkyzuRobot.services.types import InlineQueryResultCachedDocument
-from SkyzuRobot.modules.info import get_chat_info, get_user_info
-from SkyzuRobot.modules.music import download_youtube_audio
-from SkyzuRobot.utils.functions import test_speedtest
-from SkyzuRobot.utils.pastebin import paste
+from KyyRobot import pbot as app 
+from KyyRobot import arq
+from KyyRobot.services.keyboard import Ikb
+from KyyRobot.utils.pluginhelper import convert_seconds_to_minutes as time_convert, fetch
+from KyyRobot.services.tasks import _get_tasks_text, all_tasks, rm_task
+from KyyRobot.services.types import InlineQueryResultCachedDocument
+from KyyRobot.modules.info import get_chat_info, get_user_info
+from KyyRobot.modules.music import download_youtube_audio
+from KyyRobot.utils.functions import test_speedtest
+from KyyRobot.utils.pastebin import paste
 
 MESSAGE_DUMP_CHAT = EVENT_LOGS
 
@@ -122,20 +122,20 @@ async def alive_function(answers):
     )
 
     msg = f"""
-**[Skyzu Robot ❤️](https://t.me/SkyzuRobot):**
+**[Kyy Robot ❤️](https://t.me/Nastymusiicbot):**
 **MainBot:** `{bot_state}`
 **UserBot:** `{ubot_state}`
 **Python:** `{pyver.split()[0]}`
 **Pyrogram:** `{pyrover}`
 **MongoDB:** `{mongover}`
 **Platform:** `{sys.platform}`
-**Profiles:** [BOT](t.me/{BOT_USERNAME}) | [UBOT](t.me/skyzu)
+**Profiles:** [BOT](t.me/{BOT_USERNAME}) | [UBOT](t.me/IDnyaKosong)
 """
     answers.append(
         InlineQueryResultArticle(
             title="Alive",
             description="Check Bot's Stats",
-            thumb_url="https://telegra.ph/file/1b8f08dba704a5eb2bb09.jpg",
+            thumb_url="https://telegra.ph/file/d1b37552917a932acf672.jpg",
             input_message_content=InputTextMessageContent(
                 msg, disable_web_page_preview=True
             ),
