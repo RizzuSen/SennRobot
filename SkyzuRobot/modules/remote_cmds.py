@@ -1,12 +1,12 @@
-from SkyzuRobot import dispatcher, LOGGER
-from SkyzuRobot.modules.helper_funcs.chat_status import (
+from KyyRobot import dispatcher, LOGGER
+from KyyRobot.modules.helper_funcs.chat_status import (
     bot_admin,
     is_bot_admin,
     is_user_ban_protected,
     is_user_in_chat,
 )
-from SkyzuRobot.modules.helper_funcs.extraction import extract_user_and_text
-from SkyzuRobot.modules.helper_funcs.filters import CustomFilters
+from KyyRobot.modules.helper_funcs.extraction import extract_user_and_text
+from KyyRobot.modules.helper_funcs.filters import CustomFilters
 from telegram import Update, ChatPermissions
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler
