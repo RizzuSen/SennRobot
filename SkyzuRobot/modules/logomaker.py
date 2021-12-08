@@ -3,8 +3,8 @@ import random
 import glob
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
-from SkyzuRobot.events import register
-from SkyzuRobot import telethn as tbot, ubot2
+from KyyRobot.events import register
+from KyyRobot import telethn as tbot, ubot2
 
 
 def mediainfo(media):
