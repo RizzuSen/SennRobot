@@ -7,8 +7,8 @@ import time
 import uuid
 from io import BytesIO
 
-import SkyzuRobot.modules.sql.feds_sql as sql
-from SkyzuRobot import (
+import KyyRobot.modules.sql.feds_sql as sql
+from KyyRobot import (
     EVENT_LOGS,
     LOGGER,
     SUPPORT_CHAT,
@@ -18,15 +18,15 @@ from SkyzuRobot import (
     WOLVES,
     dispatcher,
 )
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.alternate import send_message
-from SkyzuRobot.modules.helper_funcs.chat_status import is_user_admin
-from SkyzuRobot.modules.helper_funcs.extraction import (
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.alternate import send_message
+from KyyRobot.modules.helper_funcs.chat_status import is_user_admin
+from KyyRobot.modules.helper_funcs.extraction import (
     extract_unt_fedban,
     extract_user,
     extract_user_fban,
 )
-from SkyzuRobot.modules.helper_funcs.string_handling import markdown_parser
+from KyyRobot.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
