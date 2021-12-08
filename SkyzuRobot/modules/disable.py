@@ -2,9 +2,9 @@ import importlib
 from typing import Union
 
 from future.utils import string_types
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.helper_funcs.handlers import CMD_STARTERS, SpamChecker
-from SkyzuRobot.modules.helper_funcs.misc import is_module_loaded
+from KyyRobot import dispatcher
+from KyyRobot.modules.helper_funcs.handlers import CMD_STARTERS, SpamChecker
+from KyyRobot.modules.helper_funcs.misc import is_module_loaded
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
