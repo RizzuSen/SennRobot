@@ -64,12 +64,12 @@ RUN apt update && apt upgrade -y && \
 # Pypi package Repo upgrade
 RUN pip3 install --upgrade pip setuptools
 
-# Copy Python Requirements to /root/SkyzuRobot 
-RUN git clone -b shiken https://github.com/kennedy-ex/SkyzuRobot /root/SkyzuRobot
+# Copy Python Requirements to /root/KyyRobot 
+RUN git clone -b shiken https://github.com/kennedy-ex/KyyRobot /root/KyyRobot
 WORKDIR /root/SkyzuRobot
 
 #Copy config file to /root/SkyzuRobot/SkyzuRobot
-COPY ./SkyzuRobot/sample_config.py ./SkyzuRobot/config.py* /root/SkyzuRobot/SkyzuRobot/
+COPY ./SkyzuRobot/sample_config.py ./KyyRobot/config.py* /root/KyyRobot/KyyRobot/
 
 ENV PATH="/home/bot/bin:$PATH"
 
@@ -77,4 +77,4 @@ ENV PATH="/home/bot/bin:$PATH"
 RUN pip3 install -U -r requirements.txt
 
 # Starting Worker
-CMD ["python3","-m","SkyzuRobot"]
+CMD ["python3","-m","KyyRobot"]
