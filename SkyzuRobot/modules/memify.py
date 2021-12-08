@@ -1,8 +1,8 @@
 import textwrap
 import os
 from PIL import Image, ImageFont, ImageDraw
-from SkyzuRobot.events import register
-from SkyzuRobot import LOGGER, TEMP_DOWNLOAD_DIRECTORY, telethn as bot
+from KyyRobot.events import register
+from KyyRobot import LOGGER, TEMP_DOWNLOAD_DIRECTORY, telethn as bot
 
 
 @register(pattern="^/mmf ?(.*)")
