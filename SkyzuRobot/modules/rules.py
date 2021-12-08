@@ -1,9 +1,9 @@
 from typing import Optional
 
-import SkyzuRobot.modules.sql.rules_sql as sql
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin
-from SkyzuRobot.modules.helper_funcs.string_handling import markdown_parser
+import KyyRobot.modules.sql.rules_sql as sql
+from KyyRobot import dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import user_admin
+from KyyRobot.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
