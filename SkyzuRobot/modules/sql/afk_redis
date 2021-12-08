@@ -1,4 +1,4 @@
-from SkyzuRobot import REDIS
+from KyyRobot import REDIS
 
 # AFK
 def is_user_afk(userid):
