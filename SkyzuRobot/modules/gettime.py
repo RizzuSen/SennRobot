@@ -2,8 +2,8 @@ import datetime
 from typing import List
 
 import requests
-from SkyzuRobot import TIME_API_KEY, dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot import TIME_API_KEY, dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext
 
