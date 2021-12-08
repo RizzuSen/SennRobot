@@ -4,15 +4,15 @@ import re
 
 from telegram import Message, Chat, Update, User, ChatPermissions
 
-from SkyzuRobot import TIGERS, WOLVES, dispatcher
-from SkyzuRobot.modules.helper_funcs.chat_status import (
+from KyyRobot import TIGERS, WOLVES, dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import (
     bot_admin,
     is_user_admin,
     user_admin,
     user_admin_no_reply,
 )
-from SkyzuRobot.modules.log_channel import loggable
-from SkyzuRobot.modules.sql import antiflood_sql as sql
+from KyyRobot.modules.log_channel import loggable
+from KyyRobot.modules.sql import antiflood_sql as sql
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
@@ -22,10 +22,10 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.utils.helpers import mention_html
-from SkyzuRobot.modules.helper_funcs.string_handling import extract_time
-from SkyzuRobot.modules.connection import connected
-from SkyzuRobot.modules.helper_funcs.alternate import send_message
-from SkyzuRobot.modules.sql.approve_sql import is_approved
+from KyyRobot.modules.helper_funcs.string_handling import extract_time
+from KyyRobot.modules.connection import connected
+from KyyRobot.modules.helper_funcs.alternate import send_message
+from KyyRobot.modules.sql.approve_sql import is_approved
 
 FLOOD_GROUP = 3
 
