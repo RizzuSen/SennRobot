@@ -5,8 +5,8 @@ import os
 import heroku3
 import requests
 
-from SkyzuRobot import telethn as borg, HEROKU_APP_NAME, HEROKU_API_KEY, OWNER_ID
-from SkyzuRobot.events import register
+from KyyRobot import telethn as borg, HEROKU_APP_NAME, HEROKU_API_KEY, OWNER_ID
+from KyyRobot.events import register
 
 heroku_api = "https://api.heroku.com"
 Heroku = heroku3.from_key(HEROKU_API_KEY)
