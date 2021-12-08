@@ -3,9 +3,9 @@ import re
 from typing import Optional
 
 import telegram
-from SkyzuRobot import TIGERS, WOLVES, dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.chat_status import (
+from KyyRobot import TIGERS, WOLVES, dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     is_user_admin,
@@ -14,16 +14,16 @@ from SkyzuRobot.modules.helper_funcs.chat_status import (
     user_admin_no_reply,
     can_delete,
 )
-from SkyzuRobot.modules.helper_funcs.extraction import (
+from KyyRobot.modules.helper_funcs.extraction import (
     extract_text,
     extract_user,
     extract_user_and_text,
 )
-from SkyzuRobot.modules.helper_funcs.filters import CustomFilters
-from SkyzuRobot.modules.helper_funcs.misc import split_message
-from SkyzuRobot.modules.helper_funcs.string_handling import split_quotes
-from SkyzuRobot.modules.log_channel import loggable
-from SkyzuRobot.modules.sql import warns_sql as sql
+from KyyRobot.modules.helper_funcs.filters import CustomFilters
+from KyyRobot.modules.helper_funcs.misc import split_message
+from KyyRobot.modules.helper_funcs.string_handling import split_quotes
+from KyyRobot.modules.log_channel import loggable
+from KyyRobot.modules.sql import warns_sql as sql
 from telegram import (
     CallbackQuery,
     Chat,
@@ -45,7 +45,7 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import mention_html
-from SkyzuRobot.modules.sql.approve_sql import is_approved
+from KyyRobot.modules.sql.approve_sql import is_approved
 
 WARN_HANDLER_GROUP = 9
 CURRENT_WARNING_FILTER_STRING = "<b>Current warning filters in this chat:</b>\n"
