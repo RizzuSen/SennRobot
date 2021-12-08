@@ -4,9 +4,9 @@ from pyrogram import __version__ as z
 from telethon import __version__ as s
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram import filters
-from SkyzuRobot import pbot
-from SkyzuRobot.utils.errors import capture_err
-from SkyzuRobot.utils.functions import make_carbon
+from KyyRobot import pbot
+from KyyRobot.utils.errors import capture_err
+from KyyRobot.utils.functions import make_carbon
 
 
 @pbot.on_message(filters.command("carbon"))
@@ -27,9 +27,9 @@ async def carbon_func(_, message):
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
     await message.reply_text(
-        f"""✨ **Hey I'm Skyzu Robot** 
+        f"""✨ **Hey I'm Kyy Robot** 
 
-**Owner repo : [Skyzu](https://t.me/skyzu)**
+**Owner repo : [Kyy](https://t.me/skyzu)**
 **Python Version :** `{y()}`
 **Library Version :** `{o}`
 **Telethon Version :** `{s}`
@@ -41,9 +41,9 @@ async def repo(_, message):
             [
                 [
                     InlineKeyboardButton(
-                        "Repo", url="https://github.com/Skyzu/SkyzuRobot"), 
+                        "Repo", url="https://github.com/muahammadrizky16/KyyRobot"), 
                     InlineKeyboardButton(
-                        "Support", url="https://t.me/skyzusupport")
+                        "Support", url="https://t.me/NastySupportt")
                 ]
             ]
         ),
