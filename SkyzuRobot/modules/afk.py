@@ -6,8 +6,8 @@ from KyyRobot.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
-from SkyzuRobot.modules.sql import afk_sql as sql
-from SkyzuRobot.modules.users import get_user_id
+from KyyRobot.modules.sql import afk_sql as sql
+from KyyRobot.modules.users import get_user_id
 from telegram import MessageEntity, Update
 from telegram.error import BadRequest
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
