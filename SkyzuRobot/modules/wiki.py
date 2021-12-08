@@ -1,6 +1,6 @@
 import wikipedia
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot import dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 from wikipedia.exceptions import DisambiguationError, PageError
