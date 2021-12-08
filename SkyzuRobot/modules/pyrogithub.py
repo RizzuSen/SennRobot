@@ -1,7 +1,7 @@
 import aiohttp
 from pyrogram import filters
-from SkyzuRobot import pbot, BOT_USERNAME
-from SkyzuRobot.utils.errors import capture_err
+from KyyRobot import pbot, BOT_USERNAME
+from KyyRobot.utils.errors import capture_err
 
 
 __mod_name__ = "Github"
