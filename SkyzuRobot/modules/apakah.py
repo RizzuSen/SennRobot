@@ -1,6 +1,6 @@
 import random
-from SkyzuRobot.events import register
-from SkyzuRobot import telethn
+from KyyRobot.events import register
+from KyyRobot import telethn
 
 APAKAH_STRING = ["Iya", 
                  "Tidak", 
