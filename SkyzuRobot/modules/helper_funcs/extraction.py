@@ -1,7 +1,7 @@
 from typing import List, Optional
 
-from SkyzuRobot import LOGGER
-from SkyzuRobot.modules.users import get_user_id
+from KyyRobot import LOGGER
+from KyyRobot.modules.users import get_user_id
 from telegram import Message, MessageEntity
 from telegram.error import BadRequest
 
