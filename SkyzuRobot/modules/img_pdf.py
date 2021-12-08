@@ -26,9 +26,9 @@ from PIL import Image
 from pyrogram import filters
 from pyrogram.types import Message
 
-from SkyzuRobot import pbot as app
-from SkyzuRobot.utils.errors import capture_err
-from SkyzuRobot.services.sections import section
+from KyyRobot import pbot as app
+from KyyRobot.utils.errors import capture_err
+from KyyRobot.services.sections import section
 
 
 async def convert(
