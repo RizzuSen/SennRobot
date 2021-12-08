@@ -2,8 +2,8 @@ import asyncio
 import time
 from telethon import events
 
-from SkyzuRobot import telethn
-from SkyzuRobot.modules.helper_funcs.telethn.chatstatus import (
+from KyyRobot import telethn
+from KyyRobot.modules.helper_funcs.telethn.chatstatus import (
     can_delete_messages,
     user_is_admin,
 )
