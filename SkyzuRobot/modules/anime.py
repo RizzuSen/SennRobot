@@ -5,8 +5,8 @@ import textwrap
 import bs4
 import jikanpy
 import requests
-from SkyzuRobot import DEV_USERS, OWNER_ID, DRAGONS, dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot import DEV_USERS, OWNER_ID, DRAGONS, dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
 from telegram.ext import CallbackContext, CallbackQueryHandler
