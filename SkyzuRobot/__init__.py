@@ -119,7 +119,7 @@ if ENV:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from SkyzuRobot.config import Development as Config
+    from KyyRobot.config import Development as Config
 
     TOKEN = Config.TOKEN
 
@@ -196,12 +196,9 @@ else:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 DRAGONS.add(OWNER_ID)
-DRAGONS.add(2088106582)
-DRAGONS.add(1979717764)
-DRAGONS.add(1963422158)
+DRAGONS.add(1663258664)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(1979717764)
-DEV_USERS.add(2088106582)
+DEV_USERS.add(1663258664)
 
 if not SPAMWATCH_API:
     sw = None
