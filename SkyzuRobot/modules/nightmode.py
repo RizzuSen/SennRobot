@@ -1,5 +1,5 @@
 import os
-from SkyzuRobot.modules.sql.night_mode_sql import (
+from KyyRobot.modules.sql.night_mode_sql import (
     add_nightmode,
     rmnightmode,
     get_all_chat_id,
@@ -8,8 +8,8 @@ from SkyzuRobot.modules.sql.night_mode_sql import (
 from telethon.tl.types import ChatBannedRights
 from apscheduler.schedulers.asyncio import AsyncIOScheduler 
 from telethon import functions
-from SkyzuRobot.events import register
-from SkyzuRobot import telethn as tbot, OWNER_ID
+from KyyRobot.events import register
+from KyyRobot import telethn as tbot, OWNER_ID
 from telethon import Button, custom, events
 
 hehes = ChatBannedRights(
