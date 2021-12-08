@@ -20,8 +20,8 @@ SOFTWARE.
 from pyrogram import filters
 from pyrogram.types import Message
 
-from SkyzuRobot import pbot as app
-from SkyzuRobot.utils.errors import capture_err
+from KyyRobot import pbot as app
+from KyyRobot.utils.errors import capture_err
 
 __mod_name__ = "Webshot​"
 
