@@ -9,17 +9,17 @@ from better_profanity import profanity
 from google_trans_new import google_translator
 from telethon import events
 from telethon.tl.types import ChatBannedRights
-from SkyzuRobot.confing import get_int_key, get_str_key
-from SkyzuRobot.services.telethonbasics import is_admin
-from SkyzuRobot.events import register
+from KyyRobot.confing import get_int_key, get_str_key
+from KyyRobot.services.telethonbasics import is_admin
+from KyyRobot.events import register
 from pymongo import MongoClient
-from SkyzuRobot.modules.sql.nsfw_watch_sql import (
+from KyyRobot.modules.sql.nsfw_watch_sql import (
     add_nsfwatch,
     get_all_nsfw_enabled_chat,
     is_nsfwatch_indb,
     rmnsfwatch,
 )
-from SkyzuRobot import telethn as tbot, MONGO_DB_URI, BOT_ID
+from KyyRobot import telethn as tbot, MONGO_DB_URI, BOT_ID
 
 translator = google_translator()
 MUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
