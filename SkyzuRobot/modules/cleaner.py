@@ -1,14 +1,14 @@
 import html
 
-from SkyzuRobot import ALLOW_EXCL, CustomCommandHandler, dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.chat_status import (
+from KyyRobot import ALLOW_EXCL, CustomCommandHandler, dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.chat_status import (
     bot_can_delete,
     connection_status,
     dev_plus,
     user_admin,
 )
-from SkyzuRobot.modules.sql import cleaner_sql as sql
+from KyyRobot.modules.sql import cleaner_sql as sql
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
