@@ -32,15 +32,15 @@ import speedtest
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from pyrogram.types import Message
 
-from SkyzuRobot import aiohttpsession as aiosession
-from SkyzuRobot.ex_plugins.dbfunctions import start_restart_stage
-from SkyzuRobot.utils.http import get, post
+from KyyRobot import aiohttpsession as aiosession
+from KyyRobot.ex_plugins.dbfunctions import start_restart_stage
+from KyyRobot.utils.http import get, post
 
 
 async def restart(m: Message):
     if m:
         await start_restart_stage(m.chat.id, m.message_id)
-    execvp(executable, [executable, "-m", "NaoRobot"])
+    execvp(executable, [executable, "-m", "KyyRobot"])
 
 
 def generate_captcha():
