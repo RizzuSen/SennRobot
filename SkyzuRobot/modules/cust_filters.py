@@ -13,23 +13,23 @@ from telegram.ext import (
     Filters,
 )
 from telegram.utils.helpers import mention_html, escape_markdown
-from SkyzuRobot import dispatcher, LOGGER, DRAGONS
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.handlers import MessageHandlerChecker
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin
-from SkyzuRobot.modules.helper_funcs.extraction import extract_text
-from SkyzuRobot.modules.helper_funcs.filters import CustomFilters
-from SkyzuRobot.modules.helper_funcs.misc import build_keyboard_parser
-from SkyzuRobot.modules.helper_funcs.msg_types import get_filter_type
-from SkyzuRobot.modules.helper_funcs.string_handling import (
+from KyyRobot import dispatcher, LOGGER, DRAGONS
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.handlers import MessageHandlerChecker
+from KyyRobot.modules.helper_funcs.chat_status import user_admin
+from KyyRobot.modules.helper_funcs.extraction import extract_text
+from KyyRobot.modules.helper_funcs.filters import CustomFilters
+from KyyRobot.modules.helper_funcs.misc import build_keyboard_parser
+from KyyRobot.modules.helper_funcs.msg_types import get_filter_type
+from KyyRobot.modules.helper_funcs.string_handling import (
     split_quotes,
     button_markdown_parser,
     escape_invalid_curly_brackets,
     markdown_to_html,
 )
-from SkyzuRobot.modules.sql import cust_filters_sql as sql
-from SkyzuRobot.modules.connection import connected
-from SkyzuRobot.modules.helper_funcs.alternate import send_message, typing_action
+from KyyRobot.modules.sql import cust_filters_sql as sql
+from KyyRobot.modules.connection import connected
+from KyyRobot.modules.helper_funcs.alternate import send_message, typing_action
 
 HANDLER_GROUP = 10
 
