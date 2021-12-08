@@ -1,11 +1,11 @@
 import html
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot import dispatcher, DRAGONS
-from SkyzuRobot.modules.helper_funcs.extraction import extract_user
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot import dispatcher, DRAGONS
+from KyyRobot.modules.helper_funcs.extraction import extract_user
 from telegram.ext import CallbackContext, CallbackQueryHandler
-import SkyzuRobot.modules.sql.approve_sql as sql
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin
-from SkyzuRobot.modules.log_channel import loggable
+import KyyRobot.modules.sql.approve_sql as sql
+from KyyRobot.modules.helper_funcs.chat_status import user_admin
+from KyyRobot.modules.log_channel import loggable
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update
 from telegram.utils.helpers import mention_html
 from telegram.error import BadRequest
