@@ -6,10 +6,10 @@ import aiohttp
 from googletrans import Translator as google_translator
 from pyrogram import filters
 from aiohttp import ClientSession
-from SkyzuRobot import BOT_USERNAME as bu
-from SkyzuRobot import BOT_ID, pbot, arq
-from SkyzuRobot.ex_plugins.chatbot import add_chat, get_session, remove_chat
-from SkyzuRobot.utils.pluginhelper import admins_only, edit_or_reply
+from KyyRobot import BOT_USERNAME as bu
+from KyyRobot import BOT_ID, pbot, arq
+from KyyRobot.ex_plugins.chatbot import add_chat, get_session, remove_chat
+from KyyRobot.utils.pluginhelper import admins_only, edit_or_reply
 
 url = "https://acobot-brainshop-ai-v1.p.rapidapi.com/get"
 
@@ -65,9 +65,9 @@ async def hmm(_, message):
         lel = await edit_or_reply(message, "`Processing...`")
         Escobar = remove_chat(int(message.chat.id))
         if not Escobar:
-            await lel.edit("Skyzu AI Was Not Activated In This Chat")
+            await lel.edit("Kyy AI Was Not Activated In This Chat")
             return
-        await lel.edit(f"Skyzu AI Deactivated by {message.from_user.mention()} for users in {message.chat.title}")
+        await lel.edit(f"Kyy AI Deactivated by {message.from_user.mention()} for users in {message.chat.title}")
 
     elif status == "EN" or status == "en" or status == "english":
         if not chat_id in en_chats:
@@ -106,11 +106,11 @@ async def hmm(client, message):
         message.continue_propagation()
     if chat_id in en_chats:
         test = msg
-        test = test.replace("Skyzu", "Aco")
-        test = test.replace("Skyzu", "Aco")
+        test = test.replace("Kyy", "Aco")
+        test = test.replace("Kyy", "Aco")
         test = test.replace("My god is @skyzu", "I'm a Christian")
         test = test.replace("16", "9")
-        test = test.replace("@skyzu is my husband.", "I'm single.")
+        test = test.replace("@Kyy is my husband.", "I'm single.")
         test = test.replace("My husband is @skyzu", "I'm single.")
         test = test.replace("@skyzusupport", "Skyzubot.ai")
         test = test.replace("I live in @skyzusupport.", "I live in San Francisco, California.")
@@ -125,10 +125,10 @@ async def hmm(client, message):
         response = await lunaQuery(
             test, message.from_user.id if message.from_user else 0
         )
-        response = response.replace("Aco", "Skyzu")
-        response = response.replace("aco", "Skyzu")
-        response = response.replace("Luna", "Skyzu")
-        response = response.replace("luna", "Skyzu")
+        response = response.replace("Aco", "Kyy")
+        response = response.replace("aco", "Kyy")
+        response = response.replace("Luna", "Kyy")
+        response = response.replace("luna", "Kyy")
         response = response.replace("I'm a Christian", "My god is @skyzu")
         response = response.replace("9", "16")
         response = response.replace("I'm married to my job.", "I'm married with @excrybaby")
