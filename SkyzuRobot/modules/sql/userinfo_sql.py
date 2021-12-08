@@ -1,6 +1,6 @@
 import threading
 
-from SkyzuRobot.modules.sql import BASE, SESSION
+from KyyRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Column, Integer, UnicodeText
 
 
