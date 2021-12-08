@@ -5,23 +5,23 @@ from telegram import ParseMode, Message
 from telegram.error import BadRequest
 from telegram.ext import CommandHandler
 
-import SkyzuRobot.modules.sql.notes_sql as sql
-from SkyzuRobot import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER, SUPPORT_CHAT
-from SkyzuRobot.__main__ import DATA_IMPORT
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin
-from SkyzuRobot.modules.helper_funcs.alternate import typing_action
+import KyyRobot.modules.sql.notes_sql as sql
+from KyyRobot import dispatcher, LOGGER, OWNER_ID, JOIN_LOGGER, SUPPORT_CHAT
+from KyyRobot.__main__ import DATA_IMPORT
+from KyyRobot.modules.helper_funcs.chat_status import user_admin
+from KyyRobot.modules.helper_funcs.alternate import typing_action
 
-# from SkyzuRobot.modules.rules import get_rules
-import SkyzuRobot.modules.sql.rules_sql as rulessql
+# from KyyRobot.modules.rules import get_rules
+import KyyRobot.modules.sql.rules_sql as rulessql
 
-# from SkyzuRobot.modules.sql import warns_sql as warnssql
-import SkyzuRobot.modules.sql.blacklist_sql as blacklistsql
-from SkyzuRobot.modules.sql import disable_sql as disabledsql
+# from KyyRobot.modules.sql import warns_sql as warnssql
+import KyyRobot.modules.sql.blacklist_sql as blacklistsql
+from KyyRobot.modules.sql import disable_sql as disabledsql
 
-# from SkyzuRobot.modules.sql import cust_filters_sql as filtersql
-# import SkyzuRobot.modules.sql.welcome_sql as welcsql
-import SkyzuRobot.modules.sql.locks_sql as locksql
-from SkyzuRobot.modules.connection import connected
+# from KyyRobot.modules.sql import cust_filters_sql as filtersql
+# import KyyRobot.modules.sql.welcome_sql as welcsql
+import KyyRobot.modules.sql.locks_sql as locksql
+from KyyRobot.modules.connection import connected
 
 
 @user_admin
