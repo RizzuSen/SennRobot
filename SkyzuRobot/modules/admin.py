@@ -5,9 +5,9 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
-from SkyzuRobot import DRAGONS, dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.chat_status import (
+from KyyRobot import DRAGONS, dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
@@ -21,8 +21,8 @@ from SkyzuRobot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from SkyzuRobot.modules.log_channel import loggable
-from SkyzuRobot.modules.helper_funcs.alternate import send_message
+from KyyRobot.modules.log_channel import loggable
+from KyyRobot.modules.helper_funcs.alternate import send_message
 
 
 @bot_admin
