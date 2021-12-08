@@ -4,14 +4,14 @@ import nekos
 import requests
 from PIL import Image
 from telegram import ParseMode
-from SkyzuRobot import dispatcher, updater
-import SkyzuRobot.modules.sql.nsfw_sql as sql
-from SkyzuRobot.modules.log_channel import gloggable
+from KyyRobot import dispatcher, updater
+import KyyRobot.modules.sql.nsfw_sql as sql
+from KyyRobot.modules.log_channel import gloggable
 from telegram import Message, Chat, Update, Bot, MessageEntity
 from telegram.error import BadRequest, RetryAfter, Unauthorized
 from telegram.ext import CommandHandler, run_async, CallbackContext
-from SkyzuRobot.modules.helper_funcs.filters import CustomFilters
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin
+from KyyRobot.modules.helper_funcs.filters import CustomFilters
+from KyyRobot.modules.helper_funcs.chat_status import user_admin
 from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
 
 @user_admin
