@@ -1,7 +1,7 @@
 # Module to blacklist users and prevent them from using commands by @TheRealPhoenix
 import html
-import SkyzuRobot.modules.sql.blacklistusers_sql as sql
-from SkyzuRobot import (
+import KyyRobot.modules.sql.blacklistusers_sql as sql
+from KyyRobot import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -10,12 +10,12 @@ from SkyzuRobot import (
     WOLVES,
     dispatcher,
 ) 
-from SkyzuRobot.modules.helper_funcs.chat_status import dev_plus
-from SkyzuRobot.modules.helper_funcs.extraction import (
+from KyyRobot.modules.helper_funcs.chat_status import dev_plus
+from KyyRobot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
-from SkyzuRobot.modules.log_channel import gloggable
+from KyyRobot.modules.log_channel import gloggable
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler
