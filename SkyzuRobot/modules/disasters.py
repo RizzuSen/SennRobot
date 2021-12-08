@@ -13,13 +13,13 @@ from SkyzuRobot import (
     WOLVES,
     dispatcher,
 )
-from SkyzuRobot.modules.helper_funcs.chat_status import (
+from KyyRobot.modules.helper_funcs.chat_status import (
     dev_plus,
     sudo_plus,
     whitelist_plus,
 )
-from SkyzuRobot.modules.helper_funcs.extraction import extract_user
-from SkyzuRobot.modules.log_channel import gloggable
+from KyyRobot.modules.helper_funcs.extraction import extract_user
+from KyyRobot.modules.log_channel import gloggable
 from telegram import ParseMode, TelegramError, Update
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.utils.helpers import mention_html
