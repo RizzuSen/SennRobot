@@ -16,8 +16,8 @@ from KyyRobot.modules.helper_funcs.chat_status import (
     ADMIN_CACHE,
 )
 
-from SkyzuRobot.modules.helper_funcs.admin_rights import user_can_changeinfo, user_can_promote
-from SkyzuRobot.modules.helper_funcs.extraction import (
+from KyyRobot.modules.helper_funcs.admin_rights import user_can_changeinfo, user_can_promote
+from KyyRobot.modules.helper_funcs.extraction import (
     extract_user,
     extract_user_and_text,
 )
