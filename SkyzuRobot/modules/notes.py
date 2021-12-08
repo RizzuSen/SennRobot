@@ -3,14 +3,14 @@ from io import BytesIO
 import random
 from typing import Optional
 
-import SkyzuRobot.modules.sql.notes_sql as sql
-from SkyzuRobot import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.handlers import MessageHandlerChecker
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin, connection_status
-from SkyzuRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from SkyzuRobot.modules.helper_funcs.msg_types import get_note_type
-from SkyzuRobot.modules.helper_funcs.string_handling import (
+import KyyRobot.modules.sql.notes_sql as sql
+from KyyRobot import LOGGER, JOIN_LOGGER, SUPPORT_CHAT, dispatcher, DRAGONS
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.handlers import MessageHandlerChecker
+from KyyRobot.modules.helper_funcs.chat_status import user_admin, connection_status
+from KyyRobot.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from KyyRobot.modules.helper_funcs.msg_types import get_note_type
+from KyyRobot.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
 )
 from telegram import (
