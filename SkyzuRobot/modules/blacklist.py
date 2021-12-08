@@ -6,18 +6,18 @@ from telegram.error import BadRequest
 from telegram.ext import CommandHandler, MessageHandler, Filters
 from telegram.utils.helpers import mention_html
 
-import SkyzuRobot.modules.sql.blacklist_sql as sql
-from SkyzuRobot import dispatcher, LOGGER
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from SkyzuRobot.modules.helper_funcs.extraction import extract_text
-from SkyzuRobot.modules.helper_funcs.misc import split_message
-from SkyzuRobot.modules.log_channel import loggable
-from SkyzuRobot.modules.warns import warn
-from SkyzuRobot.modules.helper_funcs.string_handling import extract_time
-from SkyzuRobot.modules.connection import connected
-from SkyzuRobot.modules.sql.approve_sql import is_approved
-from SkyzuRobot.modules.helper_funcs.alternate import send_message, typing_action
+import KyyRobot.modules.sql.blacklist_sql as sql
+from KyyRobot import dispatcher, LOGGER
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from KyyRobot.modules.helper_funcs.extraction import extract_text
+from KyyRobot.modules.helper_funcs.misc import split_message
+from KyyRobot.modules.log_channel import loggable
+from KyyRobot.modules.warns import warn
+from KyyRobot.modules.helper_funcs.string_handling import extract_time
+from KyyRobot.modules.connection import connected
+from KyyRobot.modules.sql.approve_sql import is_approved
+from KyyRobot.modules.helper_funcs.alternate import send_message, typing_action
 
 BLACKLIST_GROUP = 11
 
