@@ -3,10 +3,10 @@ from pyrogram import filters
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
-from SkyzuRobot import pbot as app, BOT_ID
-from SkyzuRobot.utils.errors import capture_err
-from SkyzuRobot.utils.permissions import adminsOnly
-from SkyzuRobot.ex_plugins.dbfunctions import (
+from KyyRobot import pbot as app, BOT_ID
+from KyyRobot.utils.errors import capture_err
+from KyyRobot.utils.permissions import adminsOnly
+from KyyRobot.ex_plugins.dbfunctions import (
     alpha_to_int,
     get_karma,
     get_karmas,
