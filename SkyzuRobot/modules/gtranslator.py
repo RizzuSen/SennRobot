@@ -9,9 +9,9 @@ from telegram import (
     InlineKeyboardMarkup,
     InlineKeyboardButton,
 )
-from SkyzuRobot import dispatcher, pbot
+from KyyRobot import dispatcher, pbot
 from pyrogram import filters
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.disable import DisableAbleCommandHandler
 
 
 __help__ = """ 
