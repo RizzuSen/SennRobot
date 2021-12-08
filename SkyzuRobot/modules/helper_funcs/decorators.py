@@ -1,4 +1,4 @@
-from SkyzuRobot.modules.disable import (
+from KyyRobot.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
@@ -9,11 +9,11 @@ from telegram.ext import (
     InlineQueryHandler,
 )
 from telegram.ext.filters import BaseFilter
-from SkyzuRobot import dispatcher as d, LOGGER
+from KyyRobot import dispatcher as d, LOGGER
 from typing import Optional, Union, List
 
 
-class SkyzuHandler:
+class KyyHandler:
     def __init__(self, d):
         self._dispatcher = d
 
@@ -54,7 +54,7 @@ class SkyzuHandler:
                         group,
                     )
                 LOGGER.debug(
-                    f"[SkyzuCMD] Loaded handler {command} for function {func.__name__} in group {group}"
+                    f"[KyyCMD] Loaded handler {command} for function {func.__name__} in group {group}"
                 )
             except TypeError:
                 if can_disable:
@@ -81,7 +81,7 @@ class SkyzuHandler:
                         )
                     )
                 LOGGER.debug(
-                    f"[SkyzuCMD] Loaded handler {command} for function {func.__name__}"
+                    f"[KyyCMD] Loaded handler {command} for function {func.__name__}"
                 )
 
             return func
@@ -124,7 +124,7 @@ class SkyzuHandler:
                         MessageHandler(pattern, func, run_async=run_async)
                     )
                 LOGGER.debug(
-                    f"[SkyzuMSG] Loaded filter pattern {pattern} for function {func.__name__}"
+                    f"[KyyMSG] Loaded filter pattern {pattern} for function {func.__name__}"
                 )
 
             return func
@@ -139,7 +139,7 @@ class SkyzuHandler:
                 )
             )
             LOGGER.debug(
-                f"[SkyzuCALLBACK] Loaded callbackquery handler with pattern {pattern} for function {func.__name__}"
+                f"[KyyCALLBACK] Loaded callbackquery handler with pattern {pattern} for function {func.__name__}"
             )
             return func
 
@@ -165,14 +165,14 @@ class SkyzuHandler:
                 )
             )
             LOGGER.debug(
-                f"[SkyzuINLINE] Loaded inlinequery handler with pattern {pattern} for function {func.__name__} | PASSES USER DATA: {pass_user_data} | PASSES CHAT DATA: {pass_chat_data} | CHAT TYPES: {chat_types}"
+                f"[KyyINLINE] Loaded inlinequery handler with pattern {pattern} for function {func.__name__} | PASSES USER DATA: {pass_user_data} | PASSES CHAT DATA: {pass_chat_data} | CHAT TYPES: {chat_types}"
             )
             return func
 
         return _inlinequery
 
 
-Skyzucmd = SkyzuHandler(d).command
-Skyzumsg = SkyzuHandler(d).message
-Skyzucallback = SkyzuHandler(d).callbackquery
-Skyzuinline = SkyzuHandler(d).inlinequery
+Kyycmd = KyyHandler(d).command
+Kyymsg = KyyHandler(d).message
+Kyycallback = KyyHandler(d).callbackquery
+Kyyinline = KyyHandler(d).inlinequery
