@@ -7,9 +7,9 @@ import traceback
 import aiohttp
 from telethon import events
 
-from SkyzuRobot import telethn as bot
-from SkyzuRobot.modules.urluploader import download_file
-from SkyzuRobot.utils.uputils import humanbytes, progress
+from KyyRobot import telethn as bot
+from KyyRobot.modules.urluploader import download_file
+from KyyRobot.utils.uputils import humanbytes, progress
 
 DOWNLOADPATH = "Downloads/"
 
