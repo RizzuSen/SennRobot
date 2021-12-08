@@ -1,7 +1,7 @@
 from datetime import datetime
 from functools import wraps
 from telegram.ext import CallbackContext
-from SkyzuRobot.modules.helper_funcs.misc import is_module_loaded
+from KyyRobot.modules.helper_funcs.misc import is_module_loaded
 
 FILENAME = __name__.rsplit(".", 1)[-1]
 
@@ -11,9 +11,9 @@ if is_module_loaded(FILENAME):
     from telegram.ext import CommandHandler, JobQueue, run_async
     from telegram.utils.helpers import escape_markdown
 
-    from SkyzuRobot import EVENT_LOGS, LOGGER, dispatcher
-    from SkyzuRobot.modules.helper_funcs.chat_status import user_admin
-    from SkyzuRobot.modules.sql import log_channel_sql as sql
+    from KyyRobot import EVENT_LOGS, LOGGER, dispatcher
+    from KyyRobot.modules.helper_funcs.chat_status import user_admin
+    from KyyRobot.modules.sql import log_channel_sql as sql
 
     def loggable(func):
         @wraps(func)
