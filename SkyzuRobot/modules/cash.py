@@ -3,7 +3,7 @@ import requests
 from telegram import Bot, Update
 from telegram.ext import CommandHandler, run_async
 
-from SkyzuRobot import dispatcher, CASH_API_KEY
+from KyyRobot import dispatcher, CASH_API_KEY
 
 
 def convert(bot: Bot, update: Update):
