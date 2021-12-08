@@ -1,8 +1,8 @@
 from random import randint
 
 import requests as r
-from SkyzuRobot import SUPPORT_CHAT, WALL_API, dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot import SUPPORT_CHAT, WALL_API, dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
 from telegram import Update
 from telegram.ext import CallbackContext
 
