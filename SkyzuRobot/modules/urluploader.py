@@ -3,7 +3,7 @@ import time
 
 import aiohttp
 
-from SkyzuRobot.utils.uputils import humanbytes, time_formatter
+from KyyRobot.utils.uputils import humanbytes, time_formatter
 
 
 async def download_file(url, file_name, message, start_time, bot):
