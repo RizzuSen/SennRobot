@@ -1,13 +1,13 @@
-from SkyzuRobot import telethn as tbot
-from SkyzuRobot.events import register
+from KyyRobot import telethn as tbot
+from KyyRobot.events import register
 import os
 import asyncio
 import os
 import time
 from datetime import datetime
-from SkyzuRobot import OWNER_ID, DEV_USERS
-from SkyzuRobot import TEMP_DOWNLOAD_DIRECTORY as path
-from SkyzuRobot import TEMP_DOWNLOAD_DIRECTORY
+from KyyRobot import OWNER_ID, DEV_USERS
+from KyyRobot import TEMP_DOWNLOAD_DIRECTORY as path
+from KyyRobot import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
 water = './SkyzuRobot/resources/Skyzu.png'
 client = tbot
