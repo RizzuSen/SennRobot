@@ -25,9 +25,9 @@ import requests
 from telethon import types
 from telethon.tl import functions
 
-from SkyzuRobot import REM_BG_API_KEY
-from SkyzuRobot.events import register
-from SkyzuRobot import telethn as tbot
+from KyyRobot import REM_BG_API_KEY
+from KyyRobot.events import register
+from KyyRobot import telethn as tbot
 
 REM_BG_API_KEY = "REM_BG_API_KEY"
 TEMP_DOWNLOAD_DIRECTORY = "./"
