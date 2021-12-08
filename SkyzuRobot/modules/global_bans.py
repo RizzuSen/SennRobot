@@ -15,7 +15,7 @@ from telegram.utils.helpers import mention_html
 
 import KyyRobot.modules.sql.global_bans_sql as sql
 from KyyRobot.modules.sql.users_sql import get_user_com_chats
-from SkyzuRobot import (
+from KyyRobot import (
     DEV_USERS,
     EVENT_LOGS,
     OWNER_ID,
