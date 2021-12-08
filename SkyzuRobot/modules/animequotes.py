@@ -4,9 +4,9 @@ import html
 import random
 import time
 
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.chat_status import (is_user_admin)
+from KyyRobot import dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.chat_status import (is_user_admin)
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async, CallbackQueryHandler
 from telegram import ParseMode, Update, InlineKeyboardMarkup, InlineKeyboardButton, replymarkup, ChatPermissions
 from telegram.error import BadRequest
