@@ -5,10 +5,10 @@ import sys
 from contextlib import suppress
 from time import sleep
 
-import SkyzuRobot
+import KyyRobot
 
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.helper_funcs.chat_status import dev_plus
+from KyyRobot import dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import TelegramError, Update
 from telegram.error import Unauthorized
 from telegram.ext import CallbackContext, CommandHandler
