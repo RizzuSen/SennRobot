@@ -1,9 +1,9 @@
 import html
 import random
-import SkyzuRobot.modules.truth_and_dare_string as truth_and_dare_string
-from SkyzuRobot import dispatcher
+import KyyRobot.modules.truth_and_dare_string as truth_and_dare_string
+from KyyRobot import dispatcher
 from telegram import ParseMode, Update, Bot
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.disable import DisableAbleCommandHandler
 from telegram.ext import CallbackContext, run_async
 
 
