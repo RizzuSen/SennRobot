@@ -1,7 +1,7 @@
 import random
 
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot import dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
 from telegram import Update
 from telegram.ext import CallbackContext
 
