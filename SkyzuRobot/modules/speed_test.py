@@ -1,7 +1,7 @@
 import speedtest
-from SkyzuRobot import DEV_USERS, dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.chat_status import dev_plus
+from KyyRobot import DEV_USERS, dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler
 
