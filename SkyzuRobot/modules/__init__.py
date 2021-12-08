@@ -1,4 +1,4 @@
-from SkyzuRobot import LOAD, NO_LOAD, LOGGER
+from KyyRobot import LOAD, NO_LOAD, LOGGER
 import sys
 
 
