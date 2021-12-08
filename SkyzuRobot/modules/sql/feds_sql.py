@@ -1,8 +1,8 @@
 import ast
 import threading
 
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.sql import BASE, SESSION
+from KyyRobot import dispatcher
+from KyyRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
 from telegram.error import BadRequest, Unauthorized
 
