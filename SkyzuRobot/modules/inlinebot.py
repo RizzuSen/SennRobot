@@ -1,8 +1,8 @@
 import traceback
 
-from SkyzuRobot import pbot as app
-from SkyzuRobot.utils.pluginhelper import fetch
-from SkyzuRobot.utils.inlinefuncs import *
+from KyyRobot import pbot as app
+from KyyRobot.utils.pluginhelper import fetch
+from KyyRobot.utils.inlinefuncs import *
 
 __MODULE__ = "Inline"
 __HELP__ = """See inline for help related to inline"""
