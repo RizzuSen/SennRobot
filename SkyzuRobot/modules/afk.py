@@ -1,8 +1,8 @@
 
 import random, html
 
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.disable import (
+from KyyRobot import dispatcher
+from KyyRobot.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
