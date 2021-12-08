@@ -1,6 +1,6 @@
 import requests
-from SkyzuRobot.events import register
-from SkyzuRobot import telethn as tbot
+from KyyRobot.events import register
+from KyyRobot import telethn as tbot
 
 
 @register(pattern="^/ptl ?(.*)")
