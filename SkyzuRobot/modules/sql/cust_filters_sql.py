@@ -2,8 +2,8 @@ import threading
 
 from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
 
-from SkyzuRobot.modules.helper_funcs.msg_types import Types
-from SkyzuRobot.modules.sql import BASE, SESSION
+from KyyRobot.modules.helper_funcs.msg_types import Types
+from KyyRobot.modules.sql import BASE, SESSION
 
 
 class CustomFilters(BASE):
