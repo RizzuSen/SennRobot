@@ -13,8 +13,8 @@ from telegram import TelegramError, Update
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot import dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
 
 combot_stickers_url = "https://combot.org/telegram/stickers?q="
 
