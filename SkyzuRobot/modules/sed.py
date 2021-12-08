@@ -2,9 +2,9 @@ import sre_constants
 
 import regex
 import telegram
-from SkyzuRobot import LOGGER, dispatcher
-from SkyzuRobot.modules.disable import DisableAbleMessageHandler
-from SkyzuRobot.modules.helper_funcs.regex_helper import infinite_loop_check
+from KyyRobot import LOGGER, dispatcher
+from KyyRobot.modules.disable import DisableAbleMessageHandler
+from KyyRobot.modules.helper_funcs.regex_helper import infinite_loop_check
 from telegram import Update
 from telegram.ext import CallbackContext, Filters, run_async
 
