@@ -3,9 +3,9 @@ import os
 from pyrogram import filters
 from pyrogram.types import Message
 
-from SkyzuRobot import DEV_USERS
-from SkyzuRobot import pbot as app
-from SkyzuRobot.services.sections import section
+from KyyRobot import DEV_USERS
+from KyyRobot import pbot as app
+from KyyRobot.services.sections import section
 
 
 async def get_user_info(user, already=False):
