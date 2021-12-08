@@ -2,11 +2,11 @@ import html
 import random
 import time
 
-import SkyzuRobot.modules.fun_strings as fun_strings
-from SkyzuRobot import dispatcher
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.chat_status import is_user_admin
-from SkyzuRobot.modules.helper_funcs.extraction import extract_user
+import KyyRobot.modules.fun_strings as fun_strings
+from KyyRobot import dispatcher
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.chat_status import is_user_admin
+from KyyRobot.modules.helper_funcs.extraction import extract_user
 from telegram import ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext
