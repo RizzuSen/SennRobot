@@ -18,7 +18,7 @@ from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
 from telegram.utils.helpers import escape_markdown, mention_html
     
-from SkyzuRobot import (
+from KyyRobot import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
@@ -31,16 +31,16 @@ from SkyzuRobot import (
     StartTime,
     SUPPORT_CHAT,
 )
-from SkyzuRobot.__main__ import STATS, TOKEN, USER_INFO
-from SkyzuRobot.modules.sql import SESSION
-import SkyzuRobot.modules.sql.userinfo_sql as sql
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.sql.global_bans_sql import is_user_gbanned
-from SkyzuRobot.modules.sql.afk_sql import is_afk, set_afk
-from SkyzuRobot.modules.sql.users_sql import get_user_num_chats
-from SkyzuRobot.modules.helper_funcs.chat_status import sudo_plus
-from SkyzuRobot.modules.helper_funcs.extraction import extract_user
-from SkyzuRobot import telethn
+from KyyRobot.__main__ import STATS, TOKEN, USER_INFO
+from KyyRobot.modules.sql import SESSION
+import KyyRobot.modules.sql.userinfo_sql as sql
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.sql.global_bans_sql import is_user_gbanned
+from KyyRobot.modules.sql.afk_sql import is_afk, set_afk
+from KyyRobot.modules.sql.users_sql import get_user_num_chats
+from KyyRobot.modules.helper_funcs.chat_status import sudo_plus
+from KyyRobot.modules.helper_funcs.extraction import extract_user
+from KyyRobot import telethn
 
 def no_by_per(totalhp, percentage):
     """
