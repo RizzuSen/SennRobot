@@ -1,9 +1,9 @@
 from time import sleep
 
-import SkyzuRobot.modules.sql.global_bans_sql as gban_sql
-import SkyzuRobot.modules.sql.users_sql as user_sql
-from SkyzuRobot import DEV_USERS, OWNER_ID, dispatcher
-from SkyzuRobot.modules.helper_funcs.chat_status import dev_plus
+import KyyRobot.modules.sql.global_bans_sql as gban_sql
+import KyyRobot.modules.sql.users_sql as user_sql
+from KyyRobot import DEV_USERS, OWNER_ID, dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import (
