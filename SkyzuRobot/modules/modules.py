@@ -1,8 +1,8 @@
 import importlib
 import collections
 
-from SkyzuRobot import dispatcher, telethn
-from SkyzuRobot.__main__ import (
+from KyyRobot import dispatcher, telethn
+from KyyRobot.__main__ import (
     CHAT_SETTINGS,
     DATA_EXPORT,
     DATA_IMPORT,
@@ -13,7 +13,7 @@ from SkyzuRobot.__main__ import (
     USER_INFO,
     USER_SETTINGS,
 )
-from SkyzuRobot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
+from KyyRobot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler
 
