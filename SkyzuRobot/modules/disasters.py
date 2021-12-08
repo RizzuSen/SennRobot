@@ -3,7 +3,7 @@ import json
 import os
 from typing import Optional
 
-from SkyzuRobot import (
+from KyyRobot import (
     DEV_USERS,
     OWNER_ID,
     DRAGONS,
