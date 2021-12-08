@@ -1,17 +1,17 @@
 import html
 from typing import Optional
 
-import SkyzuRobot.modules.sql.blsticker_sql as sql
-from SkyzuRobot import LOGGER, dispatcher
-from SkyzuRobot.modules.connection import connected
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot.modules.helper_funcs.alternate import send_message
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from SkyzuRobot.modules.helper_funcs.misc import split_message
-from SkyzuRobot.modules.helper_funcs.string_handling import extract_time
+import KyyRobot.modules.sql.blsticker_sql as sql
+from KyyRobot import LOGGER, dispatcher
+from KyyRobot.modules.connection import connected
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot.modules.helper_funcs.alternate import send_message
+from KyyRobot.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from KyyRobot.modules.helper_funcs.misc import split_message
+from KyyRobot.modules.helper_funcs.string_handling import extract_time
 
-from SkyzuRobot.modules.log_channel import loggable
-from SkyzuRobot.modules.warns import warn
+from KyyRobot.modules.log_channel import loggable
+from KyyRobot.modules.warns import warn
 from telegram import Chat, Message, ParseMode, Update, User, ChatPermissions
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
