@@ -10,10 +10,10 @@ from telegram.ext import (
     MessageHandler,
 )
 
-import SkyzuRobot.modules.sql.users_sql as sql
-from SkyzuRobot import DEV_USERS, LOGGER, OWNER_ID, dispatcher
-from SkyzuRobot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
-from SkyzuRobot.modules.sql.users_sql import get_all_users
+import KyyRobot.modules.sql.users_sql as sql
+from KyyRobot import DEV_USERS, LOGGER, OWNER_ID, dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
+from KyyRobot.modules.sql.users_sql import get_all_users
 
 USERS_GROUP = 4
 CHAT_GROUP = 5
