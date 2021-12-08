@@ -10,7 +10,7 @@ from pyrogram.types import (
 )
 
 # By @TroJanzHEX
-from SkyzuRobot.ex_plugins.ImageEditor.edit_1 import (  # pylint:disable=import-error
+from KyyRobot.ex_plugins.ImageEditor.edit_1 import (  # pylint:disable=import-error
     black_white,
     box_blur,
     bright,
@@ -18,7 +18,7 @@ from SkyzuRobot.ex_plugins.ImageEditor.edit_1 import (  # pylint:disable=import-
     mix,
     normal_blur,
 )
-from SkyzuRobot.ex_plugins.ImageEditor.edit_2 import (  # pylint:disable=import-error
+from KyyRobot.ex_plugins.ImageEditor.edit_2 import (  # pylint:disable=import-error
     cartoon,
     circle_with_bg,
     circle_without_bg,
@@ -28,13 +28,13 @@ from SkyzuRobot.ex_plugins.ImageEditor.edit_2 import (  # pylint:disable=import-
     sepia_mode,
     sticker,
 )
-from SkyzuRobot.ex_plugins.ImageEditor.edit_3 import (  # pylint:disable=import-error
+from KyyRobot.ex_plugins.ImageEditor.edit_3 import (  # pylint:disable=import-error
     black_border,
     blue_border,
     green_border,
     red_border,
 )
-from SkyzuRobot.ex_plugins.ImageEditor.edit_4 import (  # pylint:disable=import-error
+from KyyRobot.ex_plugins.ImageEditor.edit_4 import (  # pylint:disable=import-error
     inverted,
     removebg_plain,
     removebg_sticker,
@@ -44,7 +44,7 @@ from SkyzuRobot.ex_plugins.ImageEditor.edit_4 import (  # pylint:disable=import-
     rotate_270,
     round_sticker,
 )
-from SkyzuRobot.ex_plugins.ImageEditor.edit_5 import (  # pylint:disable=import-error
+from KyyRobot.ex_plugins.ImageEditor.edit_5 import (  # pylint:disable=import-error
     normalglitch_1,
     normalglitch_2,
     normalglitch_3,
@@ -56,7 +56,7 @@ from SkyzuRobot.ex_plugins.ImageEditor.edit_5 import (  # pylint:disable=import-
     scanlineglitch_4,
     scanlineglitch_5,
 )
-from SkyzuRobot import pbot
+from KyyRobot import pbot
 
 lel = 00000000
 # pylint:disable=import-error
