@@ -4,9 +4,9 @@ import re
 import codecs
 from typing import List
 from random import randint
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin
-from SkyzuRobot.modules.disable import DisableAbleCommandHandler
-from SkyzuRobot import (
+from KyyRobot.modules.helper_funcs.chat_status import user_admin
+from KyyRobot.modules.disable import DisableAbleCommandHandler
+from KyyRobot import (
     dispatcher,
     WALL_API,
 )
@@ -27,9 +27,9 @@ from telegram import (
 from telegram.error import BadRequest
 from telegram.ext.dispatcher import run_async
 from telegram.ext import CallbackContext, Filters, CommandHandler
-from SkyzuRobot import StartTime
-from SkyzuRobot.modules.helper_funcs.chat_status import sudo_plus
-from SkyzuRobot.modules.helper_funcs.alternate import send_action, typing_action
+from KyyRobot import StartTime
+from KyyRobot.modules.helper_funcs.chat_status import sudo_plus
+from KyyRobot.modules.helper_funcs.alternate import send_action, typing_action
 
 MARKDOWN_HELP = f"""
 Markdown is a very powerful formatting tool supported by telegram. {dispatcher.bot.first_name} has some enhancements, to make sure that \
