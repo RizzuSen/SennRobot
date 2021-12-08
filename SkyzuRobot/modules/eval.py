@@ -6,8 +6,8 @@ import textwrap
 import traceback
 from contextlib import redirect_stdout
 
-from SkyzuRobot import LOGGER, dispatcher
-from SkyzuRobot.modules.helper_funcs.chat_status import dev_plus
+from KyyRobot import LOGGER, dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, CommandHandler, run_async
 
