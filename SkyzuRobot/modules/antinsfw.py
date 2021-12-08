@@ -2,12 +2,12 @@ from os import remove
 
 from pyrogram import filters
 
-from SkyzuRobot import BOT_USERNAME as bn
-from SkyzuRobot import pbot, arq
-from SkyzuRobot.utils.errors import capture_err
-from SkyzuRobot.utils.permissions import adminsOnly
-from SkyzuRobot.ex_plugins.dbfunctions import is_nsfw_on, nsfw_off, nsfw_on
-from SkyzuRobot.utils.filter_groups import nsfw_detect_group
+from KyyRobot import BOT_USERNAME as bn
+from KyyRobot import pbot, arq
+from KyyRobot.utils.errors import capture_err
+from KyyRobot.utils.permissions import adminsOnly
+from KyyRobot.ex_plugins.dbfunctions import is_nsfw_on, nsfw_off, nsfw_on
+from KyyRobot.utils.filter_groups import nsfw_detect_group
 
 __mod_name__ = "Anti-NSFW​"
 
