@@ -1,6 +1,6 @@
-from SkyzuRobot import telethn as tbot
+from KyyRobot import telethn as tbot
 import os
-from SkyzuRobot.events import register
+from KyyRobot.events import register
 import secureme
 
 
