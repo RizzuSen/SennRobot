@@ -1,9 +1,9 @@
 import html
 
-from SkyzuRobot import LOGGER, DRAGONS, TIGERS, WOLVES, dispatcher
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin, user_not_admin
-from SkyzuRobot.modules.log_channel import loggable
-from SkyzuRobot.modules.sql import reporting_sql as sql
+from KyyRobot import LOGGER, DRAGONS, TIGERS, WOLVES, dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import user_admin, user_not_admin
+from KyyRobot.modules.log_channel import loggable
+from KyyRobot.modules.sql import reporting_sql as sql
 from telegram import Chat, InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import BadRequest, Unauthorized
 from telegram.ext import (
