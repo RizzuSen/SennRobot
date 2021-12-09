@@ -403,6 +403,6 @@ def connection_status(func):
 
 
 # Workaround for circular import with connection.py
-from SkyzuRobot.modules import connection
+from KyyRobot.modules import connection
 
 connected = connection.connected
