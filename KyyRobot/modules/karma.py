@@ -16,8 +16,8 @@ from KyyRobot.ex_plugins.dbfunctions import (
     karma_on,
     update_karma,
 )      
-from SkyzuRobot.utils.filter_groups import karma_negative_group, karma_positive_group
-from SkyzuRobot import arq
+from KyyRobot.utils.filter_groups import karma_negative_group, karma_positive_group
+from KyyRobot import arq
 
 regex_upvote = r"^((?i)\+|\+\+|\+1|thx|thanx|thanks|pro|cool|good|👍)$"
 regex_downvote = r"^(\-|\-\-|\-1|👎|noob|weak)$"
