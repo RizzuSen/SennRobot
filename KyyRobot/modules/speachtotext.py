@@ -12,7 +12,7 @@ from telethon.tl.types import *
 
 from KyyRobot import *
 from KyyRobot.events import register
-from SkyzuRobot import telethn as tbot
+from KyyRobot import telethn as tbot
 
 
 async def is_register_admin(chat, user):
