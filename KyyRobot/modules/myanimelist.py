@@ -14,7 +14,7 @@ from telegram import (
 )
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 
-from SkyzuRobot import dispatcher
+from KyyRobot import dispatcher
 
 jikan = Jikan()
 
