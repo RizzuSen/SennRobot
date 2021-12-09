@@ -414,7 +414,7 @@ def Kyy_about_callback(update, context):
     elif query.data == "Kyy_admin":
         query.message.edit_text(
             text=f"*๏ Let's make your group bit effective now*"
-            "\nCongragulations, SkyzuRobot now ready to manage your group."
+            "\nCongragulations, Nasty Robot now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
             "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
@@ -462,7 +462,7 @@ def Kyy_about_callback(update, context):
     elif query.data == "Kyy_credit":
         query.message.edit_text(
             text=f"<b>๏ Credis for Kyy</b>\n"
-            f"\nHere Developers Making The KyyRobot",
+            f"\nHere Developers Making The NastyRobot",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -788,7 +788,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                f"""**Kyy Robot Started!**
+                f"""**Nasty Robot Started!**
 
 **Python:** `{memek()}`
 **Telegram Library:** `v{peler}`""",
