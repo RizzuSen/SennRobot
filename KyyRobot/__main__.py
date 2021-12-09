@@ -815,7 +815,7 @@ def main():
     )
 
     about_callback_handler = CallbackQueryHandler(
-        Skyzu_about_callback, pattern=r"Kyy_", run_async=True
+        Kyy_about_callback, pattern=r"Kyy_", run_async=True
     )
 
     source_callback_handler = CallbackQueryHandler(
