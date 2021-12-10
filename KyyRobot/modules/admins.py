@@ -3,7 +3,7 @@ import requests
 
 from telegram import ParseMode, Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
+from telegram.ext import CallbackContext, CommandHandler, Filters, run_async, MessageHandler
 from telegram.utils.helpers import mention_html
 
 from KyyRobot import DRAGONS, dispatcher, TOKEN
