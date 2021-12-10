@@ -20,5 +20,5 @@ async def awake(event):
   TEXT += f"✘ **Telethon Version :** `{tlhver}` \n\n"
   TEXT += f"✘ **Pyrogram Version :** `{pyrover}` \n\n"
   TEXT += "**Iam Working Now🔥 **"
-  BUTTON = [[Button.url("Help", "https://t.me/Nastymusiicbot?start=help"), Button.url("Support", "https://t.me/NastySupportt")]]
+  BUTTON = [[Button.url("ʜᴇʟᴘ", "https://t.me/Nastymusiicbot?start=help"), Button.url("sᴜᴘᴘᴏʀᴛ", "https://t.me/NastySupportt")]]
   await tbot.send_file(event.chat_id, PHOTO, caption=TEXT,  buttons=BUTTON)
