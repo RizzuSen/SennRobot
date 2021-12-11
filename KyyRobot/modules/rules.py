@@ -18,7 +18,7 @@ from KyyRobot.modules.helper_funcs.decorators import kyycmd
 from KyyRobot.modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 
-@natsunagicmd(command='rules', filters=Filters.chat_type.groups)
+@Kyycmd(command='rules', filters=Filters.chat_type.groups)
 def get_rules(update: Update, _: CallbackContext):
     chat_id = update.effective_chat.id
     send_rules(update, chat_id)
@@ -93,7 +93,7 @@ def send_rules(update, chat_id, from_pm=False):
         )
 
 
-@kyycmd(command='setrules', filters=Filters.chat_type.groups)
+@Kyycmd(command='setrules', filters=Filters.chat_type.groups)
 @user_admin(AdminPerms.CAN_CHANGE_INFO)
 def set_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
@@ -113,7 +113,7 @@ def set_rules(update: Update, context: CallbackContext):
         update.effective_message.reply_text("Successfully set rules for this group.")
 
 
-@kyycmd(command='clearrules', filters=Filters.chat_type.groups)
+@Kyycmd(command='clearrules', filters=Filters.chat_type.groups)
 @user_admin(AdminPerms.CAN_CHANGE_INFO)
 def clear_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
