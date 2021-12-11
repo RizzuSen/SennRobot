@@ -5,13 +5,13 @@ from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
 from KyyRobot.modules.log_channel import loggable
-from KyyRobot.modules.helper_funcs.decorators import kyycmd
+from KyyRobot.modules.helper_funcs.decorators import Kyycmd
 
 import KyyRobot.modules.sql.logger_sql as sql
 from ..modules.helper_funcs.anonymous import user_admin as u_admin, AdminPerms
 
 
-@kyycmd(command="announce", pass_args=True)
+@Kyycmd(command="announce", pass_args=True)
 @u_admin(AdminPerms.CAN_CHANGE_INFO)
 @loggable
 def announcestat(update: Update, context: CallbackContext) -> str:
