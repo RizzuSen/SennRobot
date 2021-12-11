@@ -14,7 +14,7 @@ from telegram import (
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
-from KyyRobot.modules.helper_funcs.decorators import kyycmd
+from KyyRobot.modules.helper_funcs.decorators import Kyycmd
 from KyyRobot.modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 
