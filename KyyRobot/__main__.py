@@ -448,7 +448,7 @@ def Kyy_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url="t.me/NastySupportt"),
-                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs​", url="https://t.me/ahhsudahlahhh"),
+                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs​", url="https://t.me/NastyProject"),
                  ],
                  [
                     InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Kyy_"),
