@@ -6,6 +6,7 @@ import asyncio
 import time
 import spamwatch
 import telegram.ext as tg
+
 from inspect import getfullargspec
 from aiohttp import ClientSession
 from Python_ARQ import ARQ
@@ -16,18 +17,30 @@ from pyrogram.types import Message
 from pyrogram import Client, errors
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInvalid
 from pyrogram.types import Chat, User
-
+from redis import StrictRedis
+from ptbcontrib.postgres_persistence import PostgresPersistence
 
 StartTime = time.time()
 
+def get_user_list(__init__, key):
+    with open("{}/KyyRobot/{}".format(os.getcwd(), __init__), "r") as json_file:
+        return json.load(json_file)[key]
+
 # enable logging
+FORMAT = "[KyyRobot] %(message)s"
 logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
     level=logging.INFO,
+    format=FORMAT,
+    datefmt="[%X]",
 )
+logging.getLogger("pyrogram").setLevel(logging.INFO)
+logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 
-LOGGER = logging.getLogger(__name__)
+LOGGER = logging.getLogger('[Natsunagi]')
+LOGGER.info("Natsunagi is starting. | An Nasty Project Parts. | Licensed under GPLv3.")
+LOGGER.info("Not affiliated to the Anime Character or Villain in any way whatsoever.")
+LOGGER.info("Project maintained by: github.com/muhammadrizky16 (t.me/IDnyaKosong)")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 9:
@@ -203,6 +216,19 @@ DRAGONS.add(1663258664)
 DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(1663258664)
 
+REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
+try:
+    REDIS.ping()
+    LOGGER.info("Connecting To Redis Database")
+except BaseException:
+    raise Exception(
+        "[Natsunagi Error]: Your Redis Database Is Not Alive, Please Check Again."
+    )
+finally:
+    REDIS.ping()
+    LOGGER.info("Connection To The Redis Database Established Successfully!")
+
+
 if not SPAMWATCH_API:
     sw = None
     LOGGER.warning("SpamWatch API key missing! recheck your config")
@@ -241,7 +267,7 @@ pbot = Client(
 )
 apps = []
 apps.append(pbot)
-
+loop = asyncio.get_event_loop()
 
 async def get_entity(client, entity):
     entity_client = client
