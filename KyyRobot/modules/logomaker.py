@@ -5,7 +5,7 @@ import glob
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
 from KyyRobot.events import register
-from KyyRobot import telethn as tbot, ubot2
+from KyyRobot import telethn as tbot, ubot2 as ubot
 
 
 @register(pattern="^/logo ?(.*)")
@@ -28,7 +28,7 @@ async def logo_gen(event):
                 bg_ = await temp.download_media()
     else:
         pics = []
-        async for i in ubot2.iter_message(
+        async for i in ubot.iter_message(
             "@NatsunagiLogos", filter=InputMessagesFilterPhotos
         ):
             pics.append(i)
