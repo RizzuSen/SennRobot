@@ -89,6 +89,6 @@ async def logo_gen(event):
         os.remove(bg_)
     if (
         os.path.exists(font_)
-        and not font_.startswith("./KyyRobot/resources")
+        and not font_.startswith("./KyyRobot/resources/fonts")
     ):
         os.remove(font_)
