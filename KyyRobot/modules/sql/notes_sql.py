@@ -3,8 +3,8 @@ import threading
 
 from KyyRobot.modules.helper_funcs.msg_types import Types
 from KyyRobot.modules.sql import BASE, SESSION
+
 from sqlalchemy import Boolean, Column, Integer, String, UnicodeText, distinct, func
-from sqlalchemy.sql.sqltypes import BigInteger
 
 
 class Notes(BASE):
@@ -30,7 +30,7 @@ class Notes(BASE):
 
 class Buttons(BASE):
     __tablename__ = "note_urls"
-    id = Column(BigInteger, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     chat_id = Column(String(14), primary_key=True)
     note_name = Column(UnicodeText, primary_key=True)
     name = Column(UnicodeText, nullable=False)
