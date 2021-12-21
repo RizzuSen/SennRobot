@@ -1,7 +1,6 @@
 import threading
 
 from sqlalchemy import Column, String, UnicodeText, Boolean, Integer, distinct, func
-from sqlalchemy.sql.sqltypes import BigInteger
 
 from KyyRobot.modules.helper_funcs.msg_types import Types
 from KyyRobot.modules.sql import BASE, SESSION
