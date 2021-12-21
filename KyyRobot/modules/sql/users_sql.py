@@ -2,6 +2,7 @@ import threading
 
 from KyyRobot import dispatcher
 from KyyRobot.modules.sql import BASE, SESSION
+from sqlalchemy.sql.sqltypes import BigInteger
 from sqlalchemy import (
     Column,
     ForeignKey,
@@ -15,7 +16,7 @@ from sqlalchemy import (
 
 class Users(BASE):
     __tablename__ = "users"
-    user_id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, primary_key=True)
     username = Column(UnicodeText)
 
     def __init__(self, user_id, username=None):
