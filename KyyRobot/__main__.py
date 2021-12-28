@@ -82,7 +82,7 @@ def get_readable_time(seconds: int) -> str:
 KYY_IMG = "https://telegra.ph/file/d1b37552917a932acf672.jpg"
 
 PM_START_TEXT = """
-✪ ʜᴇʟʟᴏ ᴍʏ ɴᴀᴍᴇ ɪs ɴᴀsᴛʏ ʀᴏʙᴏᴛ [🇮🇩](https://telegra.ph/file/d1b37552917a932acf672.jpg)
+✪ ʜᴇʟʟᴏ ᴍʏ ɴᴀᴍᴇ ɪs ɴᴀsᴛʏ ʀᴏʙᴏᴛ  [🇮🇩](https://telegra.ph/file/d1b37552917a932acf672.jpg)
 ────────────────────────
 ✪ ɪ'ᴍ ᴀɴ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇ ʙᴏᴛ ᴅᴇsɪɢɴᴇᴅ ᴛᴏ ʜᴇʟᴘ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀ ʟᴏᴛ ꜰᴇᴀᴛᴜʀᴇs.
 ✪ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ @IDnyaKosong ✨
