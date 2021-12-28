@@ -79,14 +79,15 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
+KYY_IMG = "https://telegra.ph/file/d1b37552917a932acf672.jpg"
 
 PM_START_TEXT = """
-*Hello {} !*
+✪ ʜᴇʟʟᴏ ᴍʏ ɴᴀᴍᴇ ɪs ɴᴀsᴛʏ ʀᴏʙᴏᴛ [🇮🇩](https://telegra.ph/file/d1b37552917a932acf672.jpg)
 ────────────────────────
-✪ I'm an anime theme bot designed to help manage your telegram group with a lot features.
-✪ Maintained by @IDnyaKosong ✨
+✪ ɪ'ᴍ ᴀɴ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇ ʙᴏᴛ ᴅᴇsɪɢɴᴇᴅ ᴛᴏ ʜᴇʟᴘ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀ ʟᴏᴛ ꜰᴇᴀᴛᴜʀᴇs.
+✪ ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ @IDnyaKosong ✨
 ────────────────────────
-Hit the /help to see available command.
+ʜɪᴛ ᴛʜᴇ /help ᴛᴏ sᴇᴇ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅ.
 """
 
 buttons = [
@@ -116,7 +117,7 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-EMI_IMG = "https://telegra.ph/file/d1b37552917a932acf672.jpg"
+KYY_IMG = "https://telegra.ph/file/d1b37552917a932acf672.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @IDnyaKosong \
