@@ -24,12 +24,12 @@ async def carbon_func(_, message):
     carbon.close()
 
 
-KYY_IMG = "https://telegra.ph/file/d1b37552917a932acf672.jpg"
+KONTOL = "https://telegra.ph/file/d1b37552917a932acf672.jpg"
 
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
     await message.reply_photo(
-        photo=KYY_IMG,
+        photo=KONTOL,
         caption=f"""✨ **Hey I'm Nasty Robot** 
 
 **Owner repo : [Kyy](https://t.me/IDnyaKosong)**
