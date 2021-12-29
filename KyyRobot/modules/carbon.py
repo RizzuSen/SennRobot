@@ -27,7 +27,7 @@ async def carbon_func(_, message):
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
     await message.reply_text(
-        f"""✨ **Hey I'm Kyy Robot** 
+        f"""✨ **Hey I'm Nasty Robot** 
 
 **Owner repo : [Kyy](https://t.me/IDnyaKosong)**
 **Python Version :** `{y()}`
@@ -41,7 +41,7 @@ async def repo(_, message):
             [
                 [
                     InlineKeyboardButton(
-                        "ʀᴇᴘᴏ", url="https://github.com/muhammadrizky16/KyyRobot"), 
+                        "ʀᴇᴘᴏ", url="https://www.xnxx.com"), 
                     InlineKeyboardButton(
                         "sᴜᴘᴘᴏʀᴛ", url="https://t.me/NastySupportt")
                 ]
