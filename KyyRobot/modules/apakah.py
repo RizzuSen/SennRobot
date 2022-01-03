@@ -4,7 +4,7 @@ from KyyRobot import telethn
 
 APAKAH_STRING = ["Iya", 
                  "Tidak", 
-                 "Mungkin", 
+                 "Maybe", 
                  "Mungkin Tidak", 
                  "Bisa jadi", 
                  "Mungkin Tidak",
@@ -12,7 +12,7 @@ APAKAH_STRING = ["Iya",
                  "YNTKTS",
                  "Pala bapak kau pecah",
                  "Apa iya?",
-                 "Tanya aja sama mamak kau tu pler"
+                 "Tanya aja sama bapak kau tu pler"
                  ]
 
 
