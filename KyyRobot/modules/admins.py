@@ -1,7 +1,7 @@
 import html
 import requests
 
-from telegram import ParseMode, Update, InlineKeyboardButton, InlineKeyboardMarkup, Client
+from telegram import ParseMode, Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, run_async, MessageHandler
 from telegram.utils.helpers import mention_html
@@ -860,29 +860,6 @@ def adminlist(update, context):
     except BadRequest:  # if original message is deleted
         return
 
-@Client.on_message(command(["bug", "bug@SeiraXRobot"]))
-async def bug(bot, message: Message):
-    if message.chat.username:
-        chatusername = (f"{message.chat.username}")
-    else:
-        chatusername = ("Private group")
-    if message.sender_chat:
-        return await message.reply_text(
-            "you're an Anonymous Admin !\n\n» revert back to user account from admin rights."
-        )
-        await message.delete()
-    else:
-        if len(message.command) < 2:
-            await message.reply_text(reply_text("teks")
-        )
-        return await message.reply_text("dah kekirim ya ke grup")
-        await bot.send_message(LOG_CHAT_ID,f"""
-            Siap kak
-            Emm okay
-            Iya bang buset
-            """
-        )
-
 
 @bot_admin
 @can_promote
@@ -1040,7 +1017,6 @@ SET_STICKER_HANDLER = CommandHandler("setsticker", set_sticker, filters=Filters.
 SETCHATPIC_HANDLER = CommandHandler("setgpic", setchatpic, filters=Filters.chat_type.groups, run_async=True)
 RMCHATPIC_HANDLER = CommandHandler("delgpic", rmchatpic, filters=Filters.chat_type.groups, run_async=True)
 SETCHAT_TITLE_HANDLER = CommandHandler("setgtitle", setchat_title, filters=Filters.chat_type.groups, run_async=True)
-BUG_HANDLER = CommandHandler("bug", filters=Filters.chat_type.groups, run_async=True)
 
 ADMINLIST_HANDLER = DisableAbleCommandHandler("admins", adminlist, run_async=True)
 
@@ -1079,7 +1055,6 @@ dispatcher.add_handler(SET_TITLE_HANDLER)
 dispatcher.add_handler(ADMIN_REFRESH_HANDLER)
 dispatcher.add_handler(SFA_HANDLER, group=69)
 dispatcher.add_handler(CLEANLINKED_HANDLER)
-dispatcher.add_handler(BUG_HANDLER)
 
 __mod_name__ = "Admins"
 __command_list__ = [
@@ -1097,7 +1072,6 @@ __command_list__ = [
     "demote", 
     "admincache"
     "antichannelmode"
-    "bug"
 ]
 __handlers__ = [
     SET_DESC_HANDLER,
@@ -1118,5 +1092,4 @@ __handlers__ = [
     ADMIN_REFRESH_HANDLER,
     CLEANLINKED_HANDLER,
     SFA_HANDLER,
-    BUG_HANDLER,
 ]
