@@ -207,6 +207,11 @@
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
          "value": "True"
       },
+      "REDIS_URL": {
+         "description": "Your redis url. Get one from redis.com duh",
+         "required": true,
+         "value": ""
+      },
         "ARQ_API": {
             "description": "Get this from @ARQRobot.",
             "required": true
