@@ -132,5 +132,6 @@ wand
 git+https://github.com/Sorrybabe/downloader
 git+https://github.com/python-telegram-bot/ptbcontrib.git
 tswift
+pretty_errors
 geopy
 nekos.py
