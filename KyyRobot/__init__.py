@@ -126,6 +126,7 @@ if ENV:
     ARQ_API_URL = "https://thearq.tech"
     ARQ_API_KEY = ARQ_API
     REDIS_URL = os.environ.get("REDIS_URL")
+    ERROR_LOGS = os.environ.get("ERROR_LOGS", -1001380293847)
     ALLOW_CHATS = os.environ.get("ALLOW_CHATS", True)
 
     try:
@@ -175,6 +176,7 @@ else:
     API_ID = Config.API_ID
     API_HASH = Config.API_HASH
 
+    ERROR_LOGS = Config.ERROR_LOGS
     DB_URL = Config.SQLALCHEMY_DATABASE_URI
     MONGO_DB_URI = Config.MONGO_DB_URI
     SUDO_USERS = Config.SUDO_USERS
