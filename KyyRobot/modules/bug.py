@@ -100,7 +100,7 @@ async def bug(_, msg: Message):
                         ],
                         [
                             InlineKeyboardButton(
-                                "ᴄʟᴏsᴇ", callback_data=f"close_send_photo")
+                                "ᴄʟᴏsᴇ", callback_data=f"unbanb_del")
                         ]
                     ]
                 )
@@ -116,8 +116,8 @@ async def bug(_, msg: Message):
 async def close_reply(msg, CallbackQuery):
     await CallbackQuery.message.delete()
 
-@Client.on_callback_query(filters.regex("close_send_photo"))
-async def close_send_photo(Client, CallbackQuery):
+@Client.on_callback_query(filters.regex("unbanb_del"))
+async def unbanb_del(Client, CallbackQuery):
     await CallbackQuery.message.delete()
 
 
