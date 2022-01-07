@@ -12,7 +12,6 @@ from pyrogram.types import (
 
 from KyyRobot import pbot as Client
 from KyyRobot import (
-    OWNER_ID as owner_id,
     OWNER_ID as owner_usn,
     OWNER_ID as owner,
     SUPPORT_CHAT as log,
