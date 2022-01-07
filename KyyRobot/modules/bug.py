@@ -52,12 +52,12 @@ async def bug(_, msg: Message):
 **#BUG : ** **@IDnyaKosong**
 
 **From User : ** **{mention}**
-**User ID : ** {user_id}
-**Group : ** {chat_username}
+**User ID : ** **{user_id}**
+**Group : ** `{chat_username}`
 
 **Bug Report : ** **{bugs}**
 
-**Event Stamp : ** {datetimes}"""
+**Event Stamp : ** `{datetimes}`"""
 
     
     if msg.chat.type == "private":
