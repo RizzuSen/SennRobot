@@ -36,9 +36,9 @@ def content(msg: Message) -> [None, str]:
 @capture_err
 async def bug(_, msg: Message):
     if msg.chat.username:
-        chat_username = (f"@{msg.chat.username} / {msg.chat.id}")
+        chat_username = (f"@{msg.chat.username} / `{msg.chat.id}`")
     else:
-        chat_username = (f"Private Group / {msg.chat.id}")
+        chat_username = (f"Private Group / `{msg.chat.id}`")
 
     bugs = content(msg)
     user_id = msg.from_user.id
@@ -53,11 +53,11 @@ async def bug(_, msg: Message):
 
 **From User : ** **{mention}**
 **User ID : ** **{user_id}**
-**Group : ** `{chat_username}`
+**Group : ** **{chat_username}**
 
 **Bug Report : ** **{bugs}**
 
-**Event Stamp : ** `{datetimes}`"""
+**Event Stamp : ** **{datetimes}**"""
 
     
     if msg.chat.type == "private":
