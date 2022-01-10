@@ -12,6 +12,7 @@ from KyyRobot import telethn as Client
 spam_chats = []
 
 @Client.on(events.NewMessage(pattern="^/all ?(.*)"))
+@Client.on(events.NewMessage(pattern="^@all ?(.*)"))
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
