@@ -1034,7 +1034,7 @@ DEMOTE_HANDLER = DisableAbleCommandHandler("demote", demote, run_async=True)
 SET_TITLE_HANDLER = CommandHandler("title", set_title, run_async=True)
 ADMIN_REFRESH_HANDLER = CommandHandler("admincache", refresh_admin, filters=Filters.chat_type.groups, run_async=True)
 
-CLEANLINKED_HANDLER = CommandHandler(['acm', 'antich', 'antichannelmode'], antichannelmode, filters=Filters.chat_type.groups, run_async=True)
+CLEANLINKED_HANDLER = CommandHandler(['acm', 'antich', 'antichannel'], antichannelmode, filters=Filters.chat_type.groups, run_async=True)
 SFA_HANDLER = MessageHandler(Filters.all, sfachat, allow_edit=True, run_async=True)
 
 dispatcher.add_handler(SET_DESC_HANDLER)
