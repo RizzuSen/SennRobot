@@ -43,6 +43,11 @@
          "required": true,
          "value": ""
       },    
+      "ARQ_API_URL": {
+         "description": "Get Api ARQ"
+         "required": true,
+         "value": "https://thearq.tech"
+      }
       "SQLALCHEMY_DATABASE_URI": {
          "description": "Your postgres sql db, empty this field if you dont have one.",
          "required": false,
