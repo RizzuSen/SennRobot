@@ -16,6 +16,7 @@ from telegram.ext import (
     Filters,
     MessageHandler,
 )
+from KyyRobot.modules.language import gs
 
 CMD_STARTERS = ("/", "!") if ALLOW_EXCL else "/"
 BLUE_TEXT_CLEAN_GROUP = 13
@@ -213,20 +214,9 @@ def bluetext_ignore_list(update: Update, context: CallbackContext):
     message.reply_text(text, parse_mode=ParseMode.HTML)
     return
 
+def helps(chat):
+    return gs(chat, "cleaner_help")
 
-__help__ = """
- Blue text cleaner removed any made up commands that people send in your chat.
-
-❂ • /cleanblue <on/off/yes/no>*:* clean commands after sending
-❂ • /ignoreblue <word>*:* prevent auto cleaning of the command
-❂ • /unignoreblue <word>*:* remove prevent auto cleaning of the command
-❂ • /listblue*:* list currently whitelisted commands
-
- *Following are Disasters only commands, admins cannot use these:*
-
-❂ • /gignoreblue <word>*:* globally ignorea bluetext cleaning of saved word across Saitama.
-❂ • /ungignoreblue <word>*:* remove said command from global cleaning list
-"""
 
 SET_CLEAN_BLUE_TEXT_HANDLER = CommandHandler(
     "cleanblue", set_blue_text_must_click, run_async=True
