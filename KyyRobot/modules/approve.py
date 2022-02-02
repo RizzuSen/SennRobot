@@ -9,6 +9,7 @@ from KyyRobot.modules.log_channel import loggable
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update
 from telegram.utils.helpers import mention_html
 from telegram.error import BadRequest
+from KyyRobot.modules.language import gs
 
 
 @loggable
@@ -21,22 +22,20 @@ def approve(update, context):
     user = update.effective_user
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text(
-            "I don't know who you're talking about, you're going to need to specify a user!",
-        )
+        message.reply_text(text=gs(chat.id, "approve_user"))
         return ""
     try:
         member = chat.get_member(user_id)
     except BadRequest:
         return ""
     if member.status in ("administrator", "creator"):
-        message.reply_text(
-            "User is already admin - locks, blocklists, and antiflood already don't apply to them.",
-        )
+        message.reply_text(text=gs(chat.id, "approve_admin"))
         return ""
     if sql.is_approved(message.chat_id, user_id):
-        message.reply_text(
-            f"[{member.user['first_name']}](tg://user?id={member.user['id']}) is already approved in {chat_title}",
+        message.reply_text(text=gs(chat.id, "approve_id_user").format(
+                mention_html(user.id, user.first_name),
+                html.escape(chat.title),
+            ),
             parse_mode=ParseMode.MARKDOWN,
         )
         return ""
@@ -65,16 +64,14 @@ def disapprove(update, context):
     user = update.effective_user
     user_id = extract_user(message, args)
     if not user_id:
-        message.reply_text(
-            "I don't know who you're talking about, you're going to need to specify a user!",
-        )
+        message.reply_text(text=gs(update.effective_chat.id, "approve_user"))
         return ""
     try:
         member = chat.get_member(user_id)
     except BadRequest:
         return ""
     if member.status in ("administrator", "creator"):
-        message.reply_text("This user is an admin, they can't be unapproved.")
+        message.reply_text(text=gs(update.effective_chat.id, "disapprove_admin"))
         return ""
     if not sql.is_approved(message.chat_id, user_id):
         message.reply_text(f"{member.user['first_name']} isn't approved yet!")
@@ -117,9 +114,7 @@ def approval(update, context):
     user_id = extract_user(message, args)
     member = chat.get_member(int(user_id))
     if not user_id:
-        message.reply_text(
-            "I don't know who you're talking about, you're going to need to specify a user!",
-        )
+        message.reply_text(text=gs(update.effective_chat.id, "approve_user"))
         return ""
     if sql.is_approved(message.chat_id, user_id):
         message.reply_text(
@@ -136,28 +131,25 @@ def unapproveall(update: Update, context: CallbackContext):
     user = update.effective_user
     member = chat.get_member(user.id)
     if member.status != "creator" and user.id not in DRAGONS:
-        update.effective_message.reply_text(
-            "Only the chat owner can unapprove all users at once.",
-        )
+        update.effective_message.reply_text(text=gs(chat.id, "disapprove_all"))
     else:
         buttons = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        text="Unapprove all users",
+                        text=gs(chat.id, "unapprove_button"),
                         callback_data="unapproveall_user",
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        text="Cancel",
+                        text=gs(chat.id, "cancel_button"),
                         callback_data="unapproveall_cancel",
                     ),
                 ],
             ],
         )
-        update.effective_message.reply_text(
-            f"Are you sure you would like to unapprove ALL users in {chat.title}? This action cannot be undone.",
+        update.effective_message.reply_text(text=gs(chat.id, "unapprove_all"),
             reply_markup=buttons,
             parse_mode=ParseMode.MARKDOWN,
         )
@@ -174,37 +166,26 @@ def unapproveall_btn(update: Update, context: CallbackContext):
             users = [int(i.user_id) for i in approved_users]
             for user_id in users:
                 sql.disapprove(chat.id, user_id)
-            message.edit_text("Successfully Unapproved all user in this Chat.")
+            message.edit_text(text=gs(update.effective_chat.id, "disapprove_success"))
             return
 
         if member.status == "administrator":
-            query.answer("Only owner of the chat can do this.")
+            query.answer(text=gs(update.effective_chat.id, "auth_own"))
 
         if member.status == "member":
-            query.answer("You need to be admin to do this.")
+            query.answer(text=gs(update.effective_chat.id, "auth_mem"))
     elif query.data == "unapproveall_cancel":
         if member.status == "creator" or query.from_user.id in DRAGONS:
-            message.edit_text("Removing of all approved users has been cancelled.")
+            message.edit_text(text=gs(update.effective_chat.id, "del_approve"))
             return ""
         if member.status == "administrator":
-            query.answer("Only owner of the chat can do this.")
+            query.answer(text=gs(update.effective_chat.id, "auth_own"))
         if member.status == "member":
-            query.answer("You need to be admin to do this.")
+            query.answer(text=gs(update.effective_chat.id, "auth_mem"))
 
 
-__help__ = """
-Sometimes, you might trust a user not to send unwanted content.
-Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
-
-That's what approvals are for - approve of trustworthy users to allow them to send
-
-*Admin commands:*
-❂ /approval*:* Check a user's approval status in this chat.
-❂ /approve*:* Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
-❂ /unapprove*:* Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
-❂ /approved*:* List all approved users.
-❂ /unapproveall*:* Unapprove *ALL* users in a chat. This cannot be undone.
-"""
+def helps(chat):
+    return gs(chat, "approve_help")
 
 APPROVE = DisableAbleCommandHandler("approve", approve, run_async=True)
 DISAPPROVE = DisableAbleCommandHandler("unapprove", disapprove, run_async=True)
