@@ -2,16 +2,25 @@ from datetime import datetime
 from functools import wraps
 from telegram.ext import CallbackContext
 from KyyRobot.modules.helper_funcs.misc import is_module_loaded
+from KyyRobot.modules.language import gs
 
 FILENAME = __name__.rsplit(".", 1)[-1]
 
 if is_module_loaded(FILENAME):
     from telegram import ParseMode, Update
     from telegram.error import BadRequest, Unauthorized
-    from telegram.ext import CommandHandler, JobQueue, run_async
+    from telegram.ext import (
+      CommandHandler,
+      JobQueue,
+      run_async,
+    )
     from telegram.utils.helpers import escape_markdown
 
-    from KyyRobot import EVENT_LOGS, LOGGER, dispatcher
+    from PrimeMega import (
+      EVENT_LOGS,
+      LOGGER,
+      dispatcher,
+    )
     from KyyRobot.modules.helper_funcs.chat_status import user_admin
     from KyyRobot.modules.sql import log_channel_sql as sql
 
@@ -59,15 +68,8 @@ if is_module_loaded(FILENAME):
                     datetime.utcnow().strftime(datetime_fmt)
                 )
 
-                try:
-                    if message.chat.type == chat.SUPERGROUP:
-                        if message.chat.username:
-                            result += f'\n<b>Link:</b> <a href="https://t.me/{chat.username}/{message.message_id}">click here</a>'
-                        else:
-                            cid = str(chat.id).replace("-100", '')
-                            result += f'\n<b>Link:</b> <a href="https://t.me/c/{cid}/{message.message_id}">click here</a>'
-                except AttributeError:
-                    result += '\n<b>Link:</b> No link for manual actions.' # or just without the whole line
+                if message.chat.type == chat.SUPERGROUP and message.chat.username:
+                    result += f'\n<b>Link:</b> <a href="https://t.me/{chat.username}/{message.message_id}">click here</a>'
                 log_chat = str(EVENT_LOGS)
                 if log_chat:
                     send_log(context, log_chat, chat.id, result)
@@ -195,19 +197,8 @@ if is_module_loaded(FILENAME):
         return "No log channel is set for this group!"
 
 
-    __help__ = """
-──「 Log channel 」──
-
-❂ /logchannel*:* get log channel info
-❂ /setlog*:* set the log channel.
-❂ /unsetlog*:* unset the log channel.
-
-*Setting the log channel is done by*:
-
-➩ adding the bot to the desired channel (as an admin!)
-➩ sending /setlog in the channel
-➩ forwarding the /setlog to the group
-"""
+    def helps(chat):
+        return gs(chat, "logchannel_help")
 
     __mod_name__ = "Log Channel​"
 
