@@ -42,6 +42,7 @@ from telegram.ext import (
     run_async,
 )
 from telegram.utils.helpers import mention_html, mention_markdown
+from KyyRobot.modules.language import gs
 
 # Hello bot owner, I spended for feds many hours of my life, Please don't remove this if you still respect MrYacha and peaktogoo and AyraHikari too
 # Federation by MrYacha 2018-2019
@@ -86,9 +87,7 @@ def new_fed(update: Update, context: CallbackContext):
     user = update.effective_user
     message = update.effective_message
     if chat.type != "private":
-        update.effective_message.reply_text(
-            "Federations can only be created by privately messaging me.",
-        )
+        update.effective_message.reply_text(text=gs(chat.id, "feds"))
         return
     if len(message.text) == 1:
         send_message(
@@ -108,9 +107,7 @@ def new_fed(update: Update, context: CallbackContext):
 
         x = sql.new_fed(user.id, fed_name, fed_id)
         if not x:
-            update.effective_message.reply_text(
-                f"Can't federate! Please contact @{SUPPORT_CHAT} if the problem persist.",
-            )
+            update.effective_message.reply_text(text=gs(chat.id, "feds_error").format(SUPPORT_CHAT))
             return
 
         update.effective_message.reply_text(
@@ -130,30 +127,25 @@ def new_fed(update: Update, context: CallbackContext):
         except:
             LOGGER.warning("Cannot send a message to EVENT_LOGS")
     else:
-        update.effective_message.reply_text(
-            "Please write down the name of the federation",
-        )
-
+        update.effective_message.reply_text(text=gs(chat.id, "feds_name"))
 
 def del_fed(update: Update, context: CallbackContext):
     bot, args = context.bot, context.args
     chat = update.effective_chat
     user = update.effective_user
     if chat.type != "private":
-        update.effective_message.reply_text(
-            "Federations can only be deleted by privately messaging me.",
-        )
+        update.effective_message.reply_text(text=gs(chat.id, "delete_feds"))
         return
     if args:
         is_fed_id = args[0]
         getinfo = sql.get_fed_info(is_fed_id)
         if getinfo is False:
-            update.effective_message.reply_text("This federation does not exist.")
+            update.effective_message.reply_text(text=gs(chat.id, "exist_feds"))
             return
         if int(getinfo["owner"]) == int(user.id) or int(user.id) == OWNER_ID:
             fed_id = is_fed_id
         else:
-            update.effective_message.reply_text("Only federation owners can do this!")
+            update.effective_message.reply_text(text=gs(chat.id, "own_feds"))
             return
     else:
         update.effective_message.reply_text("What should I delete?")
@@ -2359,47 +2351,25 @@ def get_chat(chat_id, chat_data):
 
 
 def fed_owner_help(update: Update, context: CallbackContext):
+    chat = update.effective_chat
     update.effective_message.reply_text(
-        """*👑 Fed Owner Only:*
- • `/newfed <fed_name>`*:* Creates a Federation, One allowed per user
- • `/renamefed <fed_id> <new_fed_name>`*:* Renames the fed id to a new name
- • `/delfed <fed_id>`*:* Delete a Federation, and any information related to it. Will not cancel blocked users
- • `/fpromote <user>`*:* Assigns the user as a federation admin. Enables all commands for the user under `Fed Admins`
- • `/fdemote <user>`*:* Drops the User from the admin Federation to a normal User
- • `/subfed <fed_id>`*:* Subscribes to a given fed ID, bans from that subscribed fed will also happen in your fed
- • `/unsubfed <fed_id>`*:* Unsubscribes to a given fed ID
- • `/setfedlog <fed_id>`*:* Sets the group as a fed log report base for the federation
- • `/unsetfedlog <fed_id>`*:* Removed the group as a fed log report base for the federation
- • `/fbroadcast <message>`*:* Broadcasts a messages to all groups that have joined your fed
- • `/fedsubs`*:* Shows the feds your group is subscribed to `(broken rn)`""",
+        text=gs(chat.id, "FED_OWNER_HELP"),
         parse_mode=ParseMode.MARKDOWN,
     )
 
 
 def fed_admin_help(update: Update, context: CallbackContext):
+    chat = update.effective_chat
     update.effective_message.reply_text(
-        """*🔱 Fed Admins:*
- • `/fban <user> <reason>`*:* Fed bans a user
- • `/unfban <user> <reason>`*:* Removes a user from a fed ban
- • `/fedinfo <fed_id>`*:* Information about the specified Federation
- • `/joinfed <fed_id>`*:* Join the current chat to the Federation. Only chat owners can do this. Every chat can only be in one Federation
- • `/leavefed <fed_id>`*:* Leave the Federation given. Only chat owners can do this
- • `/setfrules <rules>`*:* Arrange Federation rules
- • `/fedadmins`*:* Show Federation admin
- • `/fbanlist`*:* Displays all users who are victimized at the Federation at this time
- • `/fedchats`*:* Get all the chats that are connected in the Federation
- • `/chatfed `*:* See the Federation in the current chat\n""",
+        text=gs(chat.id, "FED_ADMIN_HELP"),
         parse_mode=ParseMode.MARKDOWN,
     )
 
 
 def fed_user_help(update: Update, context: CallbackContext):
+    chat = update.effective_chat
     update.effective_message.reply_text(
-        """*🎩 Any user:*
-
-❂ /fbanstat*:* Shows if you/or the user you are replying to or their username is fbanned somewhere or not
-❂ /fednotif <on/off>*:* Federation settings not in PM when there are users who are fbaned/unfbanned
-❂ /frules*:* See Federation regulations\n""",
+        text=gs(chat.id, "FED_USER_HELP"),
         parse_mode=ParseMode.MARKDOWN,
     )
 
