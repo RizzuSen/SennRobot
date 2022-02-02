@@ -1,7 +1,7 @@
 # Language name in their native
 language: "Indonesia 🇮🇩"
 # name of people(s) who worked on this translation
-authors: "@IDnyaKosong"
+authors: "@saint_foire"
 
 # languages
 curr_chat_lang: "Hai. Bahasa Anda saat ini adalah {}, pilih yang Anda inginkan dari tombol di bawah :)"
@@ -33,12 +33,12 @@ pm_about_text: |
   ✪ Saya memiliki sistem pencatatan, daftar hitam, dan bahkan balasan yang telah ditentukan sebelumnya untuk kata kunci tertentu.
   ✪ Saya memeriksa izin admin sebelum menjalankan perintah apa pun dan hal lainnya
 
-  Nasty dilisensikan di bawah GNU General Public License v3.0_
+  _Nasty dilisensikan di bawah GNU General Public License v3.0_
   Klik tombol di bawah untuk mendapatkan bantuan dasar untuk Nasty.
 pm_about_admin_text: |
   *✺ Ayo buat grupmu sedikit efektif sekarang ✺*
 
-  Selamat, Robot Seira sekarang siap untuk mengelola grup Anda.
+  Selamat, Nasty sekarang siap untuk mengelola grup Anda.
 
   *Alat Admin*
   Alat Admin Dasar membantu Anda melindungi dan memperkuat grup Anda.
