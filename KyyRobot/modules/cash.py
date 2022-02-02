@@ -4,6 +4,7 @@ from telegram import Bot, Update
 from telegram.ext import CommandHandler, run_async
 
 from KyyRobot import dispatcher, CASH_API_KEY
+from KyyRobot.modules.language import gs
 
 
 def convert(bot: Bot, update: Update):
@@ -16,17 +17,13 @@ def convert(bot: Bot, update: Update):
         try:
             orig_cur = args[2].upper()
         except IndexError:
-            update.effective_message.reply_text(
-                "You forgot to mention the currency code."
-            )
+            update.effective_message.reply_text(text=gs(chat.id, "cash_error."))
             return
 
         try:
             new_cur = args[3].upper()
         except IndexError:
-            update.effective_message.reply_text(
-                "You forgot to mention the currency code to convert into."
-            )
+            update.effective_message.reply_text(text=gs(chat.id, "convert_error"))
             return
 
         request_url = f"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={orig_cur}&to_currency={new_cur}&apikey={CASH_API_KEY}"
@@ -36,7 +33,7 @@ def convert(bot: Bot, update: Update):
                 response["Realtime Currency Exchange Rate"]["5. Exchange Rate"]
             )
         except KeyError:
-            update.effective_message.reply_text(f"Currency Not Supported.")
+            update.effective_message.reply_text(text=gs(chat.id, "curency_error"))
             return
         new_cur_amount = round(orig_cur_amount * current_rate, 5)
         update.effective_message.reply_text(
