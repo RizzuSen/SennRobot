@@ -19,12 +19,12 @@ pm_start_text: |
   ✪ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ :​ @IDnyaKosong
    
 group_start_text: |
-  *👋🏻 Hai, aku Robot Nasty!* 
+  *👋🏻 Hai, aku Nasty!* 
   
   *Mulai aktif sejak :* `{}`
 
 pm_about_text: |
-  ✺ Hai Sayang saya *Seira Robot*, bot manajemen grup yang kuat yang dibuat untuk membantu Anda mengelola grup dengan mudah. ✺
+  ✺ Hai Sayang saya *Nasty*, bot manajemen grup yang kuat yang dibuat untuk membantu Anda mengelola grup dengan mudah. ✺
 
   ✪ Saya dapat membatasi pengguna.
   ✪ Saya dapat menyapa pengguna dengan pesan selamat datang yang dapat disesuaikan dan bahkan menetapkan aturan grup.
@@ -33,8 +33,8 @@ pm_about_text: |
   ✪ Saya memiliki sistem pencatatan, daftar hitam, dan bahkan balasan yang telah ditentukan sebelumnya untuk kata kunci tertentu.
   ✪ Saya memeriksa izin admin sebelum menjalankan perintah apa pun dan hal lainnya
 
-  _Seira dilisensikan di bawah GNU General Public License v3.0_
-  Klik tombol di bawah untuk mendapatkan bantuan dasar untuk Robot Seira.
+  Nasty dilisensikan di bawah GNU General Public License v3.0_
+  Klik tombol di bawah untuk mendapatkan bantuan dasar untuk Nasty.
 pm_about_admin_text: |
   *✺ Ayo buat grupmu sedikit efektif sekarang ✺*
 
@@ -53,7 +53,7 @@ pm_about_notes_text: |
   ✪ Anda dapat menyimpan pesan/media/audio atau apa pun sebagai catatan untuk mendapatkan catatan cukup gunakan # di awal kata"
   ✪ Anda juga dapat mengatur tombol untuk catatan dan filter (lihat menu bantuan)
 pm_about_support_text: |
-  *✺ Obrolan dukungan Robot Nasty ✺*
+  *✺ Obrolan dukungan Nasty ✺*
 
   Bergabunglah dengan Grup/Saluran Dukungan Saya untuk melihat atau melaporkan masalah di Seira.
 pm_about_credit_text: |
@@ -81,15 +81,15 @@ group_settings_text: "Klik di sini untuk mendapatkan pengaturan obrolan ini, ser
 group_settings_button: "Pengaturan"
 
 # PM Button
-add_bot_to_group_button: "★ Tambahkan Saya Ke Grup Anda ★"
-support_chat_link_button: "Mendukung"
-updates_channel_link_button: "Pembaruan"
-notes_button: "Catatan"
-source_button: "Chat with Owner"
-help_button: "bantuan"
-back_button: "Kembali"
-about_button: "Tentang Seira Robot"
-inline_button: "inline!​​"
+add_bot_to_group_button: "ᴛᴀᴍʙᴀʜᴋᴀɴ sᴀʏᴀ ᴋᴇ ɢʀᴜᴘ ᴀɴᴅᴀ"
+support_chat_link_button: "ᴍᴇɴᴅᴜᴋᴜɴɢ"
+updates_channel_link_button: "ᴘᴇᴍʙᴀʀᴜᴀɴ"
+notes_button: "ᴄᴀᴛᴀᴛᴀɴ"
+source_button: "ᴄʜᴀᴛ ᴡɪᴛʜ ᴏᴡɴᴇʀ"
+help_button: "ʙᴀɴᴛᴜᴀɴ"
+back_button: "ᴋᴇᴍʙᴀʟɪ"
+about_button: "ᴛᴇɴᴛᴀɴɢ ɴᴀsᴛʏ"
+inline_button: "ɪɴʟɪɴᴇ!​​"
 
 # MODULES
 admin_help: |
