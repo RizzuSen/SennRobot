@@ -30,30 +30,7 @@ from telegram.ext import CallbackContext, Filters, CommandHandler
 from KyyRobot import StartTime
 from KyyRobot.modules.helper_funcs.chat_status import sudo_plus
 from KyyRobot.modules.helper_funcs.alternate import send_action, typing_action
-
-MARKDOWN_HELP = f"""
-Markdown is a very powerful formatting tool supported by telegram. {dispatcher.bot.first_name} has some enhancements, to make sure that \
-saved messages are correctly parsed, and to allow you to create buttons.
-
-❂ <code>_italic_</code>: wrapping text with '_' will produce italic text
-❂ <code>*bold*</code>: wrapping text with '*' will produce bold text
-❂ <code>`code`</code>: wrapping text with '`' will produce monospaced text, also known as 'code'
-❂ <code>[sometext](someURL)</code>: this will create a link - the message will just show <code>sometext</code>, \
-and tapping on it will open the page at <code>someURL</code>.
-<b>Example:</b><code>[test](example.com)</code>
-
-❂ <code>[buttontext](buttonurl:someURL)</code>: this is a special enhancement to allow users to have telegram \
-buttons in their markdown. <code>buttontext</code> will be what is displayed on the button, and <code>someurl</code> \
-will be the url which is opened.
-<b>Example:</b> <code>[This is a button](buttonurl:example.com)</code>
-
-If you want multiple buttons on the same line, use :same, as such:
-<code>[one](buttonurl://example.com)
-[two](buttonurl://google.com:same)</code>
-This will create two buttons on a single line, instead of one button per line.
-
-Keep in mind that your message <b>MUST</b> contain some text other than just a button!
-"""
+from KyyRobot.modules.language import gs
 
 
 @user_admin
@@ -73,14 +50,13 @@ def echo(update: Update, context: CallbackContext):
 
 
 def markdown_help_sender(update: Update):
-    update.effective_message.reply_text(MARKDOWN_HELP, parse_mode=ParseMode.HTML)
+    chat = update.effective_chat
+    update.effective_message.reply_text(text=gs(chat.id, "MARKDOWN_HELP"), parse_mode=ParseMode.HTML)
     update.effective_message.reply_text(
-        "Try forwarding the following message to me, and you'll see, and Use #test!"
+        text=gs(chat.id, "MARKDOWN_HELP_TEXT_1")
     )
     update.effective_message.reply_text(
-        "/save test This is a markdown test. _italics_, *bold*, code, "
-        "[URL](example.com) [button](buttonurl:github.com) "
-        "[button2](buttonurl://google.com:same)"
+        text=gs(chat.id, "MARKDOWN_HELP_TEXT_2")
     )
 
 
@@ -181,28 +157,8 @@ def wall(update: Update, context: CallbackContext):
         )
 
 
-__help__ = """
-*Available commands:*
-
-❂ /markdownhelp*:* quick summary of how markdown works in telegram - can only be called in private chats
-❂ /paste*:* Saves replied content to `nekobin.com` and replies with a url
-❂ /react*:* Reacts with a random reaction 
-❂ /ud <word>*:* Type the word or expression you want to search use
-❂ /reverse*:* Does a reverse image search of the media which it was replied to.
-❂ /wiki <query>*:* wikipedia your query
-❂ /wall <query>*:* get a wallpaper from wall.alphacoders.com
-❂ /cash*:* currency converter
- Example:
- `/cash 1 USD INR`  
-      _OR_
- `/cash 1 usd inr`
- Output: `1.0 USD = 75.505 INR`
-
-*Music Modules:*
-❂ /video or /vsong (query): download video from youtube
-❂ /music or /song (query): download song from yt servers. (API BASED)
-❂ /lyrics (song name) : This plugin searches for song lyrics with song name.
-"""
+def helps(chat):
+    return gs(chat, "extras_help")
 
 ECHO_HANDLER = DisableAbleCommandHandler(
     "echo", echo, filters=Filters.chat_type.groups, run_async=True)
