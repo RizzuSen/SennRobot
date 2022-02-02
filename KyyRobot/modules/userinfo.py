@@ -6,13 +6,26 @@ import datetime
 import platform
 import time
 
-from psutil import cpu_percent, virtual_memory, disk_usage, boot_time
+from psutil import (
+  cpu_percent,
+  virtual_memory,
+  disk_usage,
+  boot_time,
+)
 from platform import python_version
 from telethon.tl.functions.channels import GetFullChannelRequest
 from telethon.tl.types import ChannelParticipantsAdmins
 from telethon import events
 
-from telegram import MAX_MESSAGE_LENGTH, ParseMode, Update, MessageEntity, __version__ as ptbver, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import (
+  MAX_MESSAGE_LENGTH,
+  ParseMode,
+  Update,
+  MessageEntity,
+  __version__ as ptbver,
+  InlineKeyboardButton,
+  InlineKeyboardMarkup,
+)
 from telegram.ext import CallbackContext, CommandHandler
 from telegram.ext.dispatcher import run_async
 from telegram.error import BadRequest
@@ -41,6 +54,7 @@ from KyyRobot.modules.sql.users_sql import get_user_num_chats
 from KyyRobot.modules.helper_funcs.chat_status import sudo_plus
 from KyyRobot.modules.helper_funcs.extraction import extract_user
 from KyyRobot import telethn
+from KyyRobot.modules.language import gs
 
 def no_by_per(totalhp, percentage):
     """
@@ -315,8 +329,8 @@ def info(update: Update, context: CallbackContext):
     elif user.id in WOLVES:
         text += "\n\nThe Disaster level of this person is 'Soldier'."
         disaster_level_present = True
-    elif user.id == 1829047705:
-         text += "\n\nOwner Of A Bot. Queen Of @skyzu. Bot Name Inspired From 'JoJo'."
+    elif user.id == 1663258664:
+         text += "\n\nOwner Of A Bot. Queen Of @IDnyaKosong. Bot Name Inspired From 'JoJo'."
          disaster_level_present = True
 
     try:
@@ -353,7 +367,7 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/NastySupportt"),
+                                "Health", url="https://t.me/NastyProject"),
                             InlineKeyboardButton(
                                 "Disaster", url="https://t.me/NastyProject")
                         ],
@@ -371,7 +385,7 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/NastySupportt"),
+                                "Health", url="https://t.me/NastyProject"),
                             InlineKeyboardButton(
                                 "Disaster", url="https://t.me/NastyProject")
                         ],
@@ -445,7 +459,7 @@ def set_about_me(update: Update, context: CallbackContext):
 
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
-    stats = "❂ <b>Stats For <a href='https://t.me/Nastymusiicbot'>Nasty Robot</a>:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
+    stats = "❂ <b>Stats For <a href='https://t.me/Nastymusiicbot'>Nasty</a>:</b>\n" + "\n".join([mod.__stats__() for mod in STATS])
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
     update.effective_message.reply_text(
         result,
@@ -537,39 +551,8 @@ def __user_info__(user_id):
     return result
 
 
-__help__ = """
-*ID:*
-❂ /id*:* get the current group id. If used by replying to a message, gets that user's id.
-❂ /gifid*:* reply to a gif to me to tell you its file ID.
- 
-*Self addded information:* 
-❂ /setme <text>*:* will set your info
-❂ /me*:* will get your or another user's info.
-Examples:
-❂ /setme I am a wolf.
-❂ /me @username(defaults to yours if no user specified)
- 
-*Information others add on you:* 
-❂ /bio*:* will get your or another user's bio. This cannot be set by yourself.
-❂ /setbio <text>*:* while replying, will save another user's bio 
-Examples:
-❂ /bio @username(defaults to yours if not specified).
-❂ /setbio This user is a wolf (reply to the user)
- 
-*Overall Information about you:*
-❂ /info*:* get information about a user. 
- 
-*json Detailed info:*
-❂ /json*:* Get Detailed info about any message.
- 
-*AFk:*
-When marked as AFK, any mentions will be replied to with a message stating that you're not available!
-❂ /afk <reason>*:* Mark yourself as AFK.
-  - brb <reason>: Same as the afk command, but not a command. 
-  
-*What is that health thingy?*
- Come and see [HP System explained](https://t.me/NastyProject)
-"""
+def helps(chat):
+    return gs(chat, "info_and_afk_help")
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio, run_async=True)
 GET_BIO_HANDLER = DisableAbleCommandHandler("bio", about_bio, run_async=True)
