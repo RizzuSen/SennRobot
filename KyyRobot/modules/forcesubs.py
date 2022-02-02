@@ -13,6 +13,7 @@ from pyrogram.types import ChatPermissions, InlineKeyboardButton, InlineKeyboard
 from KyyRobot import DRAGONS as SUDO_USERS
 from KyyRobot import pbot
 from KyyRobot.modules.sql import forceSubscribe_sql as sql
+from KyyRobot.modules.language import gs
 
 logging.basicConfig(level=logging.INFO)
 
@@ -109,7 +110,7 @@ def _check_member(client, message):
                     )
                 except ChatAdminRequired:
                     sent_message.edit(
-                        "😕 **Skyzuo is not admin here..**\n__Give me ban permissions and retry.. \n#Ending FSub...__"
+                        "😕 **Nasty is not admin here..**\n__Give me ban permissions and retry.. \n#Ending FSub...__"
                     )
 
             except ChatAdminRequired:
@@ -122,7 +123,7 @@ def _check_member(client, message):
 @pbot.on_message(filters.command(["forcesubscribe", "fsub"]) & ~filters.private)
 def config(client, message):
     user = client.get_chat_member(message.chat.id, message.from_user.id)
-    if user.status is "creator" or user.user.id in SUDO_USERS:
+    if user.status == "creator" or user.user.id in SUDO_USERS:
         chat_id = message.chat.id
         if len(message.command) > 1:
             input_str = message.command[1]
@@ -177,37 +178,7 @@ def config(client, message):
         )
 
 
-__help__ = """
-*Force Subscribe:*
+def helps(chat):
+    return gs(chat, "fsub_feds_help")
 
-❂ Nasty can mute members who are not subscribed your channel until they subscribe
-❂ When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them
-❂*Setup*
-*Only creator*
-❂ Add me in your group as admin
-❂ Add me in your channel as admin 
- 
-*Commmands*
-❂ /fsub {channel username} - To turn on and setup the channel.
-
-  💡Do this first...
-
-❂ /fsub - To get the current settings.
-❂ /fsub disable - To turn of ForceSubscribe..
-
-  💡If you disable fsub, you need to set again for working.. /fsub {channel username} 
-
-❂ /fsub clear - To unmute all members who muted by me.
-
-*Federation*
-Everything is fun, until a spammer starts entering your group, and you have to block it. Then you need to start banning more, and more, and it hurts.
-But then you have many groups, and you don't want this spammer to be in one of your groups - how can you deal? Do you have to manually block it, in all your groups?\n
-*No longer!* With Federation, you can make a ban in one chat overlap with all other chats.\n
-You can even designate federation admins, so your trusted admin can ban all the spammers from chats you want to protect.\n
-*Commands:*\n
-Feds are now divided into 3 sections for your ease.
-• `/fedownerhelp`*:* Provides help for fed creation and owner only commands
-• `/fedadminhelp`*:* Provides help for fed administration commands
-• `/feduserhelp`*:* Provides help for commands anyone can use
-"""
 __mod_name__ = "F-Sub/Feds"
