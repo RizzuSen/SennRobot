@@ -17,6 +17,7 @@ from KyyRobot.modules.helper_funcs.extraction import (
 )
 from KyyRobot.modules.helper_funcs.string_handling import extract_time
 from KyyRobot.modules.log_channel import loggable
+from KyyRobot.modules.language import gs
 from telegram import (
     Bot, 
     Chat, 
@@ -93,14 +94,13 @@ def mute(update: Update, context: CallbackContext) -> str:
         chat_permissions = ChatPermissions(can_send_messages=False)
         bot.restrict_chat_member(chat.id, user_id, chat_permissions)    
         msg = (
-            f"{mention_html(member.user.id, member.user.first_name)} [<code>{member.user.id}</code>] 🔇 Muted."
+            f"{mention_html(member.user.id, member.user.first_name)} [<code>{member.user.id}</code>] Is now 🔇 Muted."
             )
         if reason:
             msg += f"\nReason: {html.escape(reason)}"
 
         keyboard = InlineKeyboardMarkup([[
-            InlineKeyboardButton(
-                "🔄  Unmute", callback_data="unmute_({})".format(member.user.id))
+            InlineKeyboardButton(text=gs(chat.id, "unmute_button"), callback_data="unmute_({})".format(member.user.id))
         ]])
         bot.sendMessage(
             chat.id,
@@ -109,7 +109,7 @@ def mute(update: Update, context: CallbackContext) -> str:
             parse_mode=ParseMode.HTML,
         )
         return log
-    message.reply_text("This user is already muted!")
+    message.reply_text(text=gs(update.effective_chat.id, "mute_success"))
 
     return ""
             	
@@ -126,26 +126,20 @@ def unmute(update: Update, context: CallbackContext) -> str:
 
     user_id, reason = extract_user_and_text(message, args)
     if not user_id:
-        message.reply_text(
-            "You'll need to either give me a username to unmute, or reply to someone to be unmuted."
-        )
+        message.reply_text(text=gs(update.effective_chat.id, "unmute_id"))
         return ""
 
     member = chat.get_member(int(user_id))
 
     if member.status in ("kicked", "left"):
-        message.reply_text(
-            "This user isn't even in the chat, unmuting them won't make them talk more than they "
-            "already do!",
-        )
-
+        message.reply_text(text=gs(update.effective_chat.id, "unmute_error"))
     elif (
             member.can_send_messages
             and member.can_send_media_messages
             and member.can_send_other_messages
             and member.can_add_web_page_previews
         ):
-        message.reply_text("This user already has the right to speak.")
+        message.reply_text(text=gs(update.effective_chat.id, "unmute_success"))
     else:
         chat_permissions = ChatPermissions(
             can_send_messages=True,
@@ -163,8 +157,8 @@ def unmute(update: Update, context: CallbackContext) -> str:
             pass
         bot.sendMessage(
         chat.id,
-        "{} [<code>{}</code>] {} 🔊 Unmuted.\nReason: <code>{}</code>".format(
-            mention_html(member.user.id, member.user.first_name), member.user.id, reason
+        "{} [<code>{}</code>] Was 🔊 Unmuted.".format(
+            mention_html(member.user.id, member.user.first_name), member.user.id
         ),
         parse_mode=ParseMode.HTML,
         )
@@ -199,7 +193,7 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
     member = chat.get_member(user_id)
 
     if not reason:
-        message.reply_text("You haven't specified a time to mute this user for!")
+        message.reply_text(text=gs(update.effective_chat.id, "tmute_error"))
         return ""
 
     split_reason = reason.split(None, 1)
@@ -219,7 +213,7 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
         f"<b>Time:</b> {time_val}"
     )
     if reason:
-        log += f"\n<b>Reason:</b> {reason}"
+        log += f"\n\n<b>Reason:</b> {reason}"
 
     try:
         if member.can_send_messages is None or member.can_send_messages:
@@ -228,18 +222,18 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
                 chat.id, user_id, chat_permissions, until_date=mutetime,
             )     
             msg = (
-                f"{mention_html(member.user.id, member.user.first_name)} [<code>{member.user.id}</code>]"
-                f" Muted for: (<code>{time_val}</code>)\n"
+                f"{mention_html(member.user.id, member.user.first_name)} [<code>{member.user.id}</code>] Is now 🔇 Muted"
+                f"\n\nMuted for: (<code>{time_val}</code>)\n"
             )
 
             keyboard = InlineKeyboardMarkup([[
-                InlineKeyboardButton(
-                    "🔄  Unmute", callback_data="unmute_({})".format(member.user.id))
+                InlineKeyboardButton(text=gs(chat.id,
+                    "unmute_button"), callback_data="unmute_({})".format(member.user.id))
             ]])
             bot.sendMessage(chat.id, msg, reply_markup=keyboard, parse_mode=ParseMode.HTML)
 
             return log
-        message.reply_text("This user is already muted.")
+        message.reply_text(text=gs(update.effective_chat.id, "mute_success"))
 
     except BadRequest as excp:
         if excp.message == "Reply message not found":
@@ -254,7 +248,7 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
             chat.id,
             excp.message,
         )
-        message.reply_text("Well damn, I can't mute that user.")
+        message.reply_text(text=gs(update.effective_chat.id, "mute_error"))
 
     return ""
 
@@ -283,7 +277,7 @@ def button(update: Update, context: CallbackContext) -> str:
         unmuted = bot.restrict_chat_member(chat.id, int(user_id), chat_permissions)
         if unmuted:
         	update.effective_message.edit_text(
-        	    f"{mention_html(member.user.id, member.user.first_name)} [<code>{member.user.id}</code>] 🔊 Was unmuted.",
+        	    f"{mention_html(member.user.id, member.user.first_name)} [<code>{member.user.id}</code>] Now can 🔊 speak again.",
         	    parse_mode=ParseMode.HTML,
         	)
         	query.answer("Unmuted!")
@@ -294,9 +288,9 @@ def button(update: Update, context: CallbackContext) -> str:
                     f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}"
                 )
     else:
-        update.effective_message.edit_text(
-            "⚠️ This user is not muted or has left the group!"
-        )
+        update.effective_message.edit_text(text=gs(update.effective_chat.id,
+            "mute_user_error"
+        ))
         return ""
             
 
