@@ -9,7 +9,11 @@ from contextlib import redirect_stdout
 from KyyRobot import LOGGER, dispatcher
 from KyyRobot.modules.helper_funcs.chat_status import dev_plus
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, CommandHandler, run_async
+from telegram.ext import (
+  CallbackContext,
+  CommandHandler,
+  run_async,
+)
 
 namespaces = {}
 
@@ -116,7 +120,7 @@ def clear(update: Update, context: CallbackContext):
     send("Cleared locals.", bot, update)
 
 
-EXEC_HANDLER = CommandHandler(("x", "ex", "exe", "exec", "py"), execute, run_async=True)
+EXEC_HANDLER = CommandHandler(("x", "eval", "ex", "exec", "py"), execute, run_async=True)
 CLEAR_HANDLER = CommandHandler("clearlocals", clear, run_async=True)
 
 dispatcher.add_handler(EXEC_HANDLER)
