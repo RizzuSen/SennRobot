@@ -1,5 +1,5 @@
 import itertools
-import PrimeMega.modules.sql.language_sql as sql
+import KyyRobot.modules.sql.language_sql as sql
 
 from typing import Union, List, Dict, Callable, Generator, Any
 
