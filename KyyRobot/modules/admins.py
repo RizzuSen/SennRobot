@@ -25,6 +25,7 @@ from KyyRobot.modules.helper_funcs.extraction import (
 from KyyRobot.modules.log_channel import loggable
 from KyyRobot.modules.helper_funcs.alternate import send_message
 from KyyRobot.modules.sql import acm_sql
+from KyyRobot.modules.language import gs
 
 @bot_admin
 @user_admin
@@ -34,7 +35,7 @@ def set_sticker(update: Update, context: CallbackContext):
     user = update.effective_user
 
     if user_can_changeinfo(chat, user, context.bot.id) is False:
-        return msg.reply_text("You're missing rights to change chat info!")
+        return msg.reply_text(text=gs(update.effective_chat.id, "user_change_info"))
 
     if msg.reply_to_message:
         if not msg.reply_to_message.sticker:
