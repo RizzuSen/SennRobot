@@ -434,3 +434,4 @@ __handlers__ = [
     SET_FLOOD_HANDLER,
     FLOOD_HANDLER,
     SET_FLOOD_MODE_HANDLER,
+]
