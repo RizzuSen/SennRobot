@@ -379,7 +379,7 @@ def help_button(update, context):
         pass
 
 
-def seira_about_callback(update, context):
+def kyy_about_callback(update, context):
     query = update.callback_query
     chat = update.effective_chat
     if query.data == "kyy_":
