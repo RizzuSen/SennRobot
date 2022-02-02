@@ -5,6 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
 from KyyRobot.events import register
 from KyyRobot import telethn as tbot, ubot2
+from KyyRobot.modules.language import gs
 
 
 def mediainfo(media):
@@ -113,7 +114,7 @@ async def logo_gen(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [ɴᴀsᴛʏ ʀᴏʙᴏᴛ](https://t.me/Nastymusiicbot)",
+            caption="Logo by [ᴘʀɪᴍᴇ ᴍᴇɢᴀ](https://t.me/Nastymusiicbot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -196,7 +197,7 @@ async def logo_(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [ɴᴀsᴛʏ ʀᴏʙᴏᴛ](https://t.me/Nastymusiicbot)",
+            caption="Logo by [ᴘʀɪᴍᴇ ᴍᴇɢᴀ](https://t.me/Nastymusiicbot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -208,11 +209,7 @@ async def logo_(event):
             os.remove(font_)
 
 
-__mod_name__ = "Logomaker"
+def helps(chat):
+    return gs(chat, "logomarker_help")
 
-__help__ = """ This is help menu for logomaker
-❂ /logo <text/name> - Create a logo with random view.
-❂ /wlogo <text/name> - Create a logo with wide view only.
- Image Editor :
-❂  /edit <reply photo> - to edit image.
-"""
+__mod_name__ = "Logomaker"
