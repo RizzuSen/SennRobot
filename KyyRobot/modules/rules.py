@@ -2,7 +2,9 @@ from typing import Optional
 
 import KyyRobot.modules.sql.rules_sql as sql
 from KyyRobot import dispatcher
+from KyyRobot.modules.helper_funcs.chat_status import user_admin
 from KyyRobot.modules.helper_funcs.string_handling import markdown_parser
+from KyyRobot.modules.language import gs
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -14,12 +16,9 @@ from telegram import (
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters
 from telegram.utils.helpers import escape_markdown
-from KyyRobot.modules.helper_funcs.decorators import Kyycmd
-from KyyRobot.modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 
-@Kyycmd(command='rules', filters=Filters.chat_type.groups)
-def get_rules(update: Update, _: CallbackContext):
+def get_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     send_rules(update, chat_id)
 
@@ -28,7 +27,6 @@ def get_rules(update: Update, _: CallbackContext):
 def send_rules(update, chat_id, from_pm=False):
     bot = dispatcher.bot
     user = update.effective_user  # type: Optional[User]
-    message = update.effective_message
     reply_msg = update.message.reply_to_message
     try:
         chat = bot.get_chat(chat_id)
@@ -59,13 +57,12 @@ def send_rules(update, chat_id, from_pm=False):
             "This probably doesn't mean it's lawless though...!",
         )
     elif rules and reply_msg:
-        reply_msg.reply_text(
-            "Please click the button below to see the rules.",
+        reply_msg.reply_text(text=gs(update.effective_chat.id, "rules"),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="Rules",
+                            text=gs(chat.id, "rules_button"),
                             url=f"t.me/{bot.username}?start={chat_id}",
                         ),
                     ],
@@ -73,28 +70,22 @@ def send_rules(update, chat_id, from_pm=False):
             ),
         )
     elif rules:
-        btn = InlineKeyboardMarkup(
-            [
+        update.effective_message.reply_text(text=gs(chat.id, "rules"),
+            reply_markup=InlineKeyboardMarkup(
                 [
-                    InlineKeyboardButton(text="Rules", url=f"t.me/{bot.username}?start={chat_id}")
-                ]
-            ]
+                    [
+                        InlineKeyboardButton(
+                            text=gs(chat.id, "rules_button"),
+                            url=f"t.me/{bot.username}?start={chat_id}",
+                        ),
+                    ],
+                ],
+            ),
         )
-        txt = "Please click the button below to see the rules."
-        if not message.reply_to_message:
-            message.reply_text(txt, reply_markup=btn)
-
-        if message.reply_to_message:
-            message.reply_to_message.reply_text(txt, reply_markup=btn)
     else:
-        update.effective_message.reply_text(
-            "The group admins haven't set any rules for this chat yet. "
-            "This probably doesn't mean it's lawless though...!",
-        )
+        update.effective_message.reply_text(text=gs(chat.id, "rules_error"))
 
-
-@Kyycmd(command='setrules', filters=Filters.chat_type.groups)
-@user_admin(AdminPerms.CAN_CHANGE_INFO)
+@user_admin
 def set_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     msg = update.effective_message  # type: Optional[Message]
@@ -110,15 +101,14 @@ def set_rules(update: Update, context: CallbackContext):
         )
 
         sql.set_rules(chat_id, markdown_rules)
-        update.effective_message.reply_text("Successfully set rules for this group.")
+        update.effective_message.reply_text(text=gs(chat.id, "rules_success"))
 
 
-@Kyycmd(command='clearrules', filters=Filters.chat_type.groups)
-@user_admin(AdminPerms.CAN_CHANGE_INFO)
+@user_admin
 def clear_rules(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     sql.set_rules(chat_id, "")
-    update.effective_message.reply_text("Successfully cleared rules!")
+    update.effective_message.reply_text(text=gs(chat.id, "del_rules"))
 
 
 def __stats__():
@@ -140,3 +130,17 @@ def __chat_settings__(chat_id, user_id):
 
 
 __mod_name__ = "Rules"
+
+GET_RULES_HANDLER = CommandHandler(
+    "rules", get_rules, filters=Filters.chat_type.groups, run_async=True
+)
+SET_RULES_HANDLER = CommandHandler(
+    "setrules", set_rules, filters=Filters.chat_type.groups, run_async=True
+)
+RESET_RULES_HANDLER = CommandHandler(
+    "clearrules", clear_rules, filters=Filters.chat_type.groups, run_async=True
+)
+
+dispatcher.add_handler(GET_RULES_HANDLER)
+dispatcher.add_handler(SET_RULES_HANDLER)
+dispatcher.add_handler(RESET_RULES_HANDLER)
