@@ -18,12 +18,12 @@ pm_start_text: |
   ✪ ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴍʏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs​.
   ✪ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ :​ @IDnyaKosong
 group_start_text: |
-  *👋🏻 Hi , I'm Nasty Robot!*
+  *👋🏻 Hi , I'm Nasty!*
   
   *Started active since :* `{}`
 
 pm_about_text: |
-  ✺ Hey Darling I'm *Seira Robot*, a powerful group management bot built to help you manage your group easily. ✺
+  ✺ Hey Darling I'm *Nasty*, a powerful group management bot built to help you manage your group easily. ✺
 
   ✪ I can restrict users.
   ✪ I can greet users with customizable welcome messages and even set a group's rules.
@@ -32,12 +32,12 @@ pm_about_text: |
   ✪ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
   ✪ I check for admins' permissions before executing any command and more stuffs
 
-  _Seira licensed under the GNU General Public License v3.0_
-  Click on button bellow to get basic help for Seira Robot.
+  Nastu licensed under the GNU General Public License v3.0_
+  Click on button bellow to get basic help for Nasty.
 pm_about_admin_text: |
   *✺ Let's make your group bit effective now ✺*
 
-  Congragulations, Seira Robot now ready to manage your group.
+  Congragulations, Nasty now ready to manage your group.
 
   *Admin Tools*
   Basic Admin tools help you to protect and powerup your group.
@@ -80,15 +80,15 @@ group_settings_text: "Click here to get this chat's settings, as well as yours."
 group_settings_button: "Settings"
 
 # PM Button
-add_bot_to_group_button: "★ Add Me To Your Group ★"
-support_chat_link_button: "Support"
-updates_channel_link_button: "Update"
-notes_button: "Notes"
-source_button: "Chat with Owner"
-help_button: "Help"
-back_button: "Go back"
-about_button: "About Seira Robot"
-inline_button: "Try inline!​​"
+add_bot_to_group_button: "ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ"
+support_chat_link_button: "sᴜᴘᴘᴏʀᴛ"
+updates_channel_link_button: "ᴜᴘᴅᴀᴛᴇ"
+notes_button: "ɴᴏᴛᴇs"
+source_button: "ᴄʜᴀᴛ ᴡɪᴛʜ ᴏᴡɴᴇʀ"
+help_button: "ʜᴇʟᴘ"
+back_button: "ɢᴏ ʙᴀᴄᴋ"
+about_button: "ᴀʙᴏᴜᴛ ɴᴀsᴛʏ"
+inline_button: "ᴛʀʏ ɪɴʟɪɴᴇ!​​"
 
 # MODULES
 admin_help: |
