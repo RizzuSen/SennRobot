@@ -19,7 +19,7 @@ class Language:
             return en_string
 
     def reload_strings(self) -> None:
-        for filename in os.listdir(r"./SeiraRobot/language"):
+        for filename in os.listdir(r"./KyyRobot/language"):
             if filename.endswith(".yaml"):
                 language_name = filename[:-5]
                 self.languages[language_name] = yaml.safe_load(
