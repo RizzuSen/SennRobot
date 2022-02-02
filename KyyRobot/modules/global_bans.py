@@ -12,9 +12,9 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.utils.helpers import mention_html
-
 import KyyRobot.modules.sql.global_bans_sql as sql
 from KyyRobot.modules.sql.users_sql import get_user_com_chats
+from KyyRobot.modules.language import gs
 from KyyRobot import (
     DEV_USERS,
     EVENT_LOGS,
@@ -82,63 +82,55 @@ def gban(update: Update, context: CallbackContext):
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect..",
-        )
+        message.reply_text(text=gs(update.effective_chat.id, "gban_id"))
         return
 
     if int(user_id) in DEV_USERS:
-        message.reply_text(
-            "That user is part of the Association\nI can't act against our own.",
-        )
+        message.reply_text(text=gs(update.effective_chat.id, "gban_devs"))
         return
 
     if int(user_id) in DRAGONS:
-        message.reply_text(
-            "I spy, with my little eye... a disaster! Why are you guys turning on each other?",
-        )
+        message.reply_text(text=gs(update.effective_chat.id, "gban_dragons"))
         return
 
     if int(user_id) in DEMONS:
-        message.reply_text(
-            "OOOH someone's trying to gban a Demon Disaster! *grabs popcorn*",
-        )
+        message.reply_text(text=gs(update.effective_chat.id, "gban_demons"))
         return
 
     if int(user_id) in TIGERS:
-        message.reply_text("That's a Tiger! They cannot be banned!")
+        message.reply_text(text=gs(update.effective_chat.id, "gban_tigers"))
         return
 
     if int(user_id) in WOLVES:
-        message.reply_text("That's a Wolf! They cannot be banned!")
+        message.reply_text(text=gs(update.effective_chat.id, "gban_wolf"))
         return
 
     if user_id == bot.id:
-        message.reply_text("You uhh...want me to punch myself?")
+        message.reply_text(text=gs(update.effective_chat.id, "gban_self"))
         return
 
     if user_id in [777000, 1087968824]:
-        message.reply_text("Fool! You can't attack Telegram's native tech!")
+        message.reply_text(text=gs(update.effective_chat.id, "gban_tele"))
         return
 
     try:
         user_chat = bot.get_chat(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user.")
+            message.reply_text(text=gs(update.effective_chat.id, "gban_error"))
             return ""
         return
 
     if user_chat.type != "private":
-        message.reply_text("That's not a user!")
+        message.reply_text(text=gs(update.effective_chat.id, "gban_user"))
         return
-
+    if not reason:
+        message.reply_text(text=gs(update.effective_chat.id, "gban_reason"))
+        return
     if sql.is_user_gbanned(user_id):
 
         if not reason:
-            message.reply_text(
-                "This user is already gbanned; I'd change the reason, but you haven't given me one...",
-            )
+            message.reply_text(text=gs(update.effective_chat.id, "already_gban"))
             return
 
         old_reason = sql.update_gban_reason(
@@ -157,10 +149,7 @@ def gban(update: Update, context: CallbackContext):
             )
 
         else:
-            message.reply_text(
-                "This user is already gbanned, but had no reason set; I've gone and updated it!",
-            )
-
+            message.reply_text(text=gs(update.effective_chat.id, "update_gban"))
         return
 
     message.reply_text("On it!")
@@ -258,9 +247,9 @@ def gban(update: Update, context: CallbackContext):
 
     if gban_time > 60:
         gban_time = round((gban_time / 60), 2)
-        message.reply_text("Done! Gbanned.", parse_mode=ParseMode.HTML)
+        message.reply_text(text=gs(update.effective_chat.id, "gban_success"), parse_mode=ParseMode.HTML)
     else:
-        message.reply_text("Done! Gbanned.", parse_mode=ParseMode.HTML)
+        message.reply_text(text=gs(update.effective_chat.id, "gban_success"), parse_mode=ParseMode.HTML)
 
     try:
         bot.send_message(
@@ -286,21 +275,19 @@ def ungban(update: Update, context: CallbackContext):
     user_id = extract_user(message, args)
 
     if not user_id:
-        message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect..",
-        )
+        message.reply_text(text=gs(update.effective_chat.id, "gban_id"))
         return
 
     user_chat = bot.get_chat(user_id)
     if user_chat.type != "private":
-        message.reply_text("That's not a user!")
+        message.reply_text(text=gs(update.effective_chat.id, "gban_user"))
         return
 
     if not sql.is_user_gbanned(user_id):
-        message.reply_text("This user is not gbanned!")
+        message.reply_text(text=gs(update.effective_chat.id, "gban_failed"))
         return
 
-    message.reply_text(f"I'll give {user_chat.first_name} a second chance, globally.")
+    message.reply_text(text=gs(chat.id, "ungban").format(user_chat.first_name))
 
     start_time = time.time()
     datetime_fmt = "%Y-%m-%dT%H:%M"
@@ -383,9 +370,9 @@ def ungban(update: Update, context: CallbackContext):
 
     if ungban_time > 60:
         ungban_time = round((ungban_time / 60), 2)
-        message.reply_text(f"Person has been un-gbanned. Took {ungban_time} min")
+        message.reply_text(text=gs(update.effective_chat.id, "ungban1").format(ungban_time))
     else:
-        message.reply_text(f"Person has been un-gbanned. Took {ungban_time} sec")
+        message.reply_text(text=gs(update.effective_chat.id, "ungban2").format(ungban_time))
 
 
 @support_plus
@@ -393,9 +380,7 @@ def gbanlist(update: Update, context: CallbackContext):
     banned_users = sql.get_gban_list()
 
     if not banned_users:
-        update.effective_message.reply_text(
-            "There aren't any gbanned users! You're kinder than I expected...",
-        )
+        update.effective_message.reply_text(text=gs(chat.id, "no_gban"))
         return
 
     banfile = "Screw these guys.\n"
@@ -486,15 +471,10 @@ def gbanstat(update: Update, context: CallbackContext):
     if len(args) > 0:
         if args[0].lower() in ["on", "yes"]:
             sql.enable_gbans(update.effective_chat.id)
-            update.effective_message.reply_text(
-                "Antispam is now enabled ✅ "
-                "I am now protecting your group from potential remote threats!",
-            )
+            update.effective_message.reply_text(text=gs(chat.id, "antispam_on"))
         elif args[0].lower() in ["off", "no"]:
             sql.disable_gbans(update.effective_chat.id)
-            update.effective_message.reply_text(
-                "Antispan is now disabled ❌ " "Spamwatch is now disabled ❌",
-            )
+            update.effective_message.reply_text(text=gs(chat.id, "antispam_off"))
     else:
         update.effective_message.reply_text(
             "Give me some arguments to choose a setting! on/off, yes/no!\n\n"
