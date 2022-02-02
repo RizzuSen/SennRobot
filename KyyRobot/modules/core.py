@@ -9,7 +9,7 @@ from KyyRobot import OWNER_ID, DEV_USERS
 from KyyRobot import TEMP_DOWNLOAD_DIRECTORY as path
 from KyyRobot import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
-water = './SkyzuRobot/resources/Skyzu.png'
+water = './KyyRobot/resources/Skyzu.png'
 client = tbot
 
 @register(pattern=r"^/send ?(.*)")
