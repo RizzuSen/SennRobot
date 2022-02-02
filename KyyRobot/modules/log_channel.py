@@ -16,7 +16,7 @@ if is_module_loaded(FILENAME):
     )
     from telegram.utils.helpers import escape_markdown
 
-    from PrimeMega import (
+    from KyyRobot import (
       EVENT_LOGS,
       LOGGER,
       dispatcher,
