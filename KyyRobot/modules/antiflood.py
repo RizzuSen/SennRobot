@@ -13,6 +13,7 @@ from KyyRobot.modules.helper_funcs.chat_status import (
 )
 from KyyRobot.modules.log_channel import loggable
 from KyyRobot.modules.sql import antiflood_sql as sql
+from KyyRobot.modules.language import gs
 from telegram.error import BadRequest
 from telegram.ext import (
     CallbackContext,
@@ -390,12 +391,14 @@ def set_flood_mode(update, context):
 def __migrate__(old_chat_id, new_chat_id):
     sql.migrate_chat(old_chat_id, new_chat_id)
 
-
 def __chat_settings__(chat_id, user_id):
     limit = sql.get_flood_limit(chat_id)
     if limit == 0:
         return "Not enforcing to flood control."
     return "Antiflood has been set to`{}`.".format(limit)
+
+def helps(chat):
+    return gs(chat, "antiflood_help")
 
 __mod_name__ = "Anti-Flood"
 
@@ -431,4 +434,3 @@ __handlers__ = [
     SET_FLOOD_HANDLER,
     FLOOD_HANDLER,
     SET_FLOOD_MODE_HANDLER,
-]
