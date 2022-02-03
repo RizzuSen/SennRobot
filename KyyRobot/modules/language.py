@@ -1,28 +1,24 @@
 import itertools
-import KyyRobot.modules.sql.language_sql as sql
 
 from typing import Union, List, Dict, Callable, Generator, Any
-
 from collections.abc import Iterable
 from telegram.ext import CommandHandler, CallbackQueryHandler
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 
+import KyyRobot.modules.sql.language_sql as sql
 from KyyRobot import dispatcher
 from KyyRobot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
 from KyyRobot.language import get_string, get_languages, get_language
 
 
-
-def paginate(
-    iterable: Iterable, page_size: int
-) -> Generator[List, None, None]:
+def paginate(iterable: Iterable, page_size: int) -> Generator[List, None, None]:
     while True:
         i1, i2 = itertools.tee(iterable)
         iterable, page = (
             itertools.islice(i1, page_size, None),
             list(itertools.islice(i2, page_size)),
         )
-        if not page:
+        if len(page) == 0:
             break
         yield page
 
@@ -41,16 +37,21 @@ def set_lang(update: Update, _) -> None:
         get_language(sql.get_chat_lang(chat.id))[:-3]
     )
 
-    keyb = [InlineKeyboardButton(
+    keyb = []
+    for code, name in get_languages().items():
+        keyb.append(
+            InlineKeyboardButton(
                 text=name,
                 callback_data=f"setLang_{code}",
-            ) for code, name in get_languages().items()]
+            )
+        )
+
     keyb = list(paginate(keyb, 2))
     keyb.append(
         [
             InlineKeyboardButton(
                 text="Help us in translations",
-                url="https://poeditor.com/join/project?hash=gXVtzsSQ88",
+                url="https://poeditor.com/join/project?hash=oJISpjNcEx",
             )
         ]
     )
@@ -71,8 +72,8 @@ def lang_button(update: Update, _) -> None:
     )
 
 
-SETLANG_HANDLER = CommandHandler("setlang", set_lang)
-SETLANG_BUTTON_HANDLER = CallbackQueryHandler(lang_button, pattern=r"setLang_")
+SETLANG_HANDLER = CommandHandler("setlang", set_lang, run_async=True)
+SETLANG_BUTTON_HANDLER = CallbackQueryHandler(lang_button, pattern=r"setLang_", run_async=True)
 
 dispatcher.add_handler(SETLANG_HANDLER)
 dispatcher.add_handler(SETLANG_BUTTON_HANDLER)
