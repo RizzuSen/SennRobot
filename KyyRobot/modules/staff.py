@@ -6,7 +6,7 @@ from pyrogram.types import Message
 from KyyRobot import pbot
 
 
-@pbot.on_message(filters.command("staff"))
+@pbot.on_message(filters.command("staff") & ~filters.edited & ~filters.bot & ~filters.forwarded)
 def staff(client: Client, message: Message):
     chat_id = message.chat.id
     chat_title = message.chat.title
