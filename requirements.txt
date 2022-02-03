@@ -18,13 +18,13 @@ pillow
 pretty-errors
 psutil
 pynewtonmath
-python-telegram-bot==13.10.0
+python-telegram-bot==13.11.0
 regex
 requests
 spamwatch
 speedtest-cli
-SQLAlchemy==1.4.30
-telethon==1.24.0
+SQLAlchemy==1.4.31
+telethon
 requests_html
 ujson
 wikipedia
@@ -113,7 +113,7 @@ pySmartDL
 validators
 flag
 fuzzysearch
-PyYAML>5.0
+PyYAML
 configparser
 gitpython
 html-telegraph-poster
