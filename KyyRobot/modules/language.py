@@ -68,17 +68,16 @@ def lang_button(update: Update, _) -> None:
     sql.set_lang(chat.id, lang)
 
     query.message.edit_text(
-        gs(chat.id, "set_chat_lang").format(get_language(lang)[:-3])
+        gs(chat.id, "set_chat_lang").format(get_language(lang)[:-3]),
         reply_markup=InlineKeyboardMarkup(
+            [
                 [
-                    [
-                        InlineKeyboardButton(
-                            "⬅️ Back",
-                            callback_data=f"back_",
-                        ),
-                    ]
-                ],
-            ),
+                    InlineKeyboardButton(
+                        "⬅️ Back",
+                        callback_data=f"back_",
+                    )
+                ]
+            ]
         )
     )
     
