@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://telegra.ph/file/d1b37552917a932acf672.jpg">
+  <img src="https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg">
 </p>
 
 <h4><p align="center"> KYY ROBOT </p></h4>
