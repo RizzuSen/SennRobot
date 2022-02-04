@@ -30,7 +30,7 @@ MEKI = "https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg"
 async def repo(_, message):
     await message.reply_photo(
         photo=MEKI,
-        caption=f"""✨ **Hey I'm Nasty** ✨
+        caption=f"""**Hey I'm Nasty** ✨
 
 **Owner repo : [Kyy](https://t.me/IDnyaKosong)**
 **Python Version :** `{y()}`
