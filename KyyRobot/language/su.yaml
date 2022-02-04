@@ -18,19 +18,19 @@ pm_start_text: |
   ✪ Pencét /help pikeun ningali paréntah kuring anu sayogi.
    
 group_start_array1: |
-   *👋🏻 Hai pak {}, abdi Nasty Mega!*
+   *👋🏻 Hai pak {}, abdi Nasty!*
   
    *Aktif saprak:* `{}`
 group_start_array2: |
-   *👋🏻 Hai anjeun {}, abdi Nasty Mega!*
+   *👋🏻 Hai anjeun {}, abdi Nasty!*
   
    *Aktif saprak:* `{}`
 group_start_array3: |
-   *👋🏻 Hai Darling {}, abdi Nasty Mega!*
+   *👋🏻 Hai Darling {}, abdi Nasty!*
   
    *Aktif saprak:* `{}`
 group_start_array4: |
-   *👋🏻 Sampurasun {}, abdi Nasty Mega!*
+   *👋🏻 Sampurasun {}, abdi Nasty!*
   
    *Aktif saprak:* `{}`
 group_start_array5: |
