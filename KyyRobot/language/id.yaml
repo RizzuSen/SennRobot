@@ -18,10 +18,27 @@ pm_start_text: |
   ✪ ᴛᴇᴋᴀɴ /help ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴘᴇʀɪɴᴛᴀʜ sᴀʏᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ.
   ✪ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ :​ @IDnyaKosong
    
-group_start_text: |
-  *👋🏻 Hai, aku Nasty!* 
-  
-  *Mulai aktif sejak :* `{}`
+group_start_array1: |
+   *👋🏻 Hai tuan {}, saya Nasty!*
+
+   * Aktif sejak:* `{}`
+group_start_array2: |
+   *👋🏻 Hai kamu {}, aku Nasty!*
+
+   * Aktif sejak:* `{}`
+group_start_array3: |
+   *👋🏻 Hai Sayang {}, Aku Nasty!*
+
+   * Aktif sejak:* `{}`
+group_start_array4: |
+   *👋🏻 Halo {}, Saya Nasty!*
+
+   * Aktif sejak:* `{}`
+group_start_array5: |
+   *👋🏻 Hai, Aku Nasty!*
+   *Ada yang bisa saya bantu tuan {}?*
+
+   * Aktif sejak:* `{}`
 
 pm_about_text: |
   ✺ Hai Sayang saya *Nasty*, bot manajemen grup yang kuat yang dibuat untuk membantu Anda mengelola grup dengan mudah. ✺
