@@ -1,4 +1,4 @@
-import html
+import random, html
 import os
 import json
 import importlib
@@ -6,8 +6,6 @@ import time
 import re
 import sys
 import traceback
-
-from sqlalchemy.sql.expression import text, update
 import KyyRobot.modules.sql.users_sql as sql
 from sys import argv
 from typing import Optional
@@ -58,6 +56,7 @@ from telegram.utils.helpers import escape_markdown
 from KyyRobot.modules.language import gs
 
 
+
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
@@ -82,6 +81,8 @@ def get_readable_time(seconds: int) -> str:
 
     return ping_time
 
+HELP_STRINGS = """
+Click on the button bellow to get description about specifics command."""
 
 KYY_IMG = "https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg"
 
@@ -159,6 +160,7 @@ def test(update: Update, context: CallbackContext):
 def start(update: Update, context: CallbackContext):
     args = context.args
     chat = update.effective_chat
+    firstname = update.effective_user.first_name
     uptime = get_readable_time((time.time() - StartTime))
     if update.effective_chat.type == "private":
         if len(args) >= 1:
@@ -172,19 +174,11 @@ def start(update: Update, context: CallbackContext):
                 )
             elif args[0].lower().startswith("ghelp_"):
                 mod = args[0].lower().split("_", 1)[1]
-
-                help_list = HELPABLE[mod].helps(update.effective_chat.id)
-                if isinstance(help_list, list):
-                    help_text = help.list[0]
-                elif isinstance(help_list, str):
-                    help_text = help.list
-
                 if not HELPABLE.get(mod, False):
                     return
-
                 send_help(
                     update.effective_chat.id,
-                    HELPABLE[mod].__mod_name__ + help_text,
+                    HELPABLE[mod].helps,
                     InlineKeyboardMarkup(
                         [
                             [
@@ -234,13 +228,21 @@ def start(update: Update, context: CallbackContext):
                 disable_web_page_preview=False,
             )
     else:
+        options = [
+                gs(chat.id, "group_start_array1"),
+                gs(chat.id, "group_start_array2"),
+                gs(chat.id, "group_start_array3"),
+                gs(chat.id, "group_start_array4"),
+                gs(chat.id, "group_start_array5"),
+            ]
+        chosen_options = random.choice(options)
         update.effective_message.reply_text(
-            text=gs(chat.id, "group_start_text").format(
+            text=chosen_options.format(
+                escape_markdown(firstname),
                 escape_markdown(uptime),
                 ),
             parse_mode=ParseMode.MARKDOWN
        )
-
 
 def error_handler(update, context):
     """Log the error and send a telegram message to notify the developer."""
@@ -345,7 +347,7 @@ def help_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             query.message.edit_text(
-                text=gs(chat.id,"pm_help_text"),
+                text=gs(chat.id,"pm_help_module_text"),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
@@ -355,7 +357,7 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             query.message.edit_text(
-                text=gs(chat.id,"pm_help_text"),
+                text=gs(chat.id,"pm_help_module_text"),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
@@ -364,7 +366,7 @@ def help_button(update, context):
 
         elif back_match:
             query.message.edit_text(
-                text=gs(chat.id,"pm_help_text"),
+                text=gs(chat.id,"pm_help_module_text"),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
@@ -397,12 +399,12 @@ def kyy_about_callback(update, context):
                         InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), callback_data="kyy_support"),
                         InlineKeyboardButton(text="Credits", callback_data="kyy_credit"),
                     ],
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "source_button"), url="https://t.me/IDnyaKosong"),
-                    ],
-                    [
+                 [
+                    InlineKeyboardButton(text="Musicplayer", callback_data="source_"),
+                 ],
+                 [
                     InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="kyy_back"),
-                    ]
+                 ]
                 ]
             ),
         )
@@ -484,37 +486,47 @@ def kyy_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-                        InlineKeyboardButton(text="Kyy", url="https://github.com/IDnyaKosong"),
-                    ],
-                    [
-                        InlineKeyboardButton(text="Paul Larsen", url="https://github.com/PaulSonOfLars"),
-                        InlineKeyboardButton(text="TheHamkerCat", url="https://github.com/TheHamkerCat"),
-                    ],
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="kyy_"),
-                    ]
+                 [
+                    InlineKeyboardButton(text="Kyy", url="t.me/IDnyaKosong"),
+                    InlineKeyboardButton(text="x~b", url="t.me/Xbarok"),
+                 ],
+                 [
+                    InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="kyy_"),
+                 
+                 ]
                 ]
             ),
         )
 
 def Source_about_callback(update, context):
     query = update.callback_query
-    chat = update.effective_chat
-    uptime = get_readable_time((time.time() - StartTime))
+    chat = update.effective_message
     if query.data == "source_":
         query.message.edit_text(
             text="๏›› This advance command for Musicplayer."
-            "\n\n๏ Command for admins and member can you see with command bellow."
-            "\n • `/mhelp` - checking help music module (only in pm bot)"
-            "\n • `/msettings` - setting your authorization music module",
+            "\n\n๏ Command for admins only."
+            "\n • `/reload` - For refreshing the adminlist."
+            "\n • `/userbotjoin` - For inviting the assistant to your groups."
+            "\n • `/userbotleave` - Use this if you want the assistant leaving your groups."
+            "\n • `/pause` - To pause the playback."
+            "\n • `/vpause` - To pause video stream."
+            "\n • `/resume` - To resuming the playback You've paused."
+            "\n • `/vresume` - To resuming video stream."
+            "\n • `/skip` - To skipping the player."
+            "\n • `/vskip` - To skipping the video stream."
+            "\n • `/end` - For end the playback."
+            "\n • `/vend` - For end the video stream."
+            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
+            "\n\n๏ Command for all members."
+            "\n • `/play` or `/ytp` <query> - Playing music via YouTube."
+            "\n • `/vplay` <query or reply audio> - Playing video from YouTube.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="kyy_"),
-                    ]
+                 [
+                    InlineKeyboardButton(text="Go Back", callback_data="kyy_")
+                 ]
                 ]
             ),
         )
@@ -542,7 +554,7 @@ def Source_about_callback(update, context):
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,
+                disable_web_page_preview=True,
         )
 
 def get_help(update: Update, context: CallbackContext):
@@ -643,7 +655,6 @@ def send_settings(chat_id, user_id, user=False):
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, CHAT_SETTINGS, "stngs", chat=chat_id)
                 ),
-                parse_mode=ParseMode.MARKDOWN,
             )
         else:
             dispatcher.bot.send_message(
@@ -657,7 +668,6 @@ def send_settings(chat_id, user_id, user=False):
 def settings_button(update: Update, context: CallbackContext):
     query = update.callback_query
     user = update.effective_user
-    chat = update.effective_chat
     bot = context.bot
     mod_match = re.match(r"stngs_module\((.+?),(.+?)\)", query.data)
     prev_match = re.match(r"stngs_prev\((.+?),(.+?)\)", query.data)
@@ -874,7 +884,7 @@ def main():
     dispatcher.add_error_handler(error_callback)
 
     if WEBHOOK:
-        LOGGER.info("Using webhooks.")
+        LOGGER.info(f"{dispatcher.bot.first_name} started, Using webhooks.")
         updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
 
         if CERT_PATH:
@@ -883,7 +893,7 @@ def main():
             updater.bot.set_webhook(url=URL + TOKEN)
 
     else:
-        LOGGER.info("Using long polling.")
+        LOGGER.info(f"{dispatcher.bot.first_name} started, Using long polling.")
         updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
 
     if len(argv) not in (1, 3, 4):
