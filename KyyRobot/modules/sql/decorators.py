@@ -1,7 +1,7 @@
 from KyyRobot.modules.disable import DisableAbleCommandHandler, DisableAbleMessageHandler
-from KyyRobot import dispatcher as n, LOGGER
+from KyyRobot import dispatcher as k, LOGGER
 from telegram.ext import CommandHandler, MessageHandler, CallbackQueryHandler, InlineQueryHandler
-from telegram.ext.filters import BaseFilter
+from telegram.ext.filters import MessageFilter
 
 from typing import Optional, Union, List
 
@@ -11,7 +11,7 @@ class KyyTelegramHandler:
         self._dispatcher = k
 
     def command(
-        self, command: str, filters: Optional[BaseFilter] = None, admin_ok: bool = False, pass_args: bool = False, pass_chat_data: bool = False, run_async: bool = True, can_disable: bool = True, group: Optional[Union[int]] = 40
+        self, command: str, filters: Optional[MessageFilter] = None, admin_ok: bool = False, pass_args: bool = False, pass_chat_data: bool = False, run_async: bool = True, can_disable: bool = True, group: Optional[Union[int, str]] = 40
     ):
 
 
@@ -41,7 +41,7 @@ class KyyTelegramHandler:
 
         return _command
 
-    def message(self, pattern: Optional[str] = None, can_disable: bool = True, run_async: bool = True, group: Optional[Union[int]] = 60, friendly = None):
+    def message(self, pattern: Optional[str] = None, can_disable: bool = True, run_async: bool = True, group: Optional[Union[int, str]] = 60, friendly = None):
         def _message(func):
             try:
                 if can_disable:
@@ -80,6 +80,7 @@ class KyyTelegramHandler:
             LOGGER.debug(f'[KYYROBOTINLINE] Loaded inlinequery handler with pattern {pattern} for function {func.__name__} | PASSES USER DATA: {pass_user_data} | PASSES CHAT DATA: {pass_chat_data} | CHAT TYPES: {chat_types}')
             return func
         return _inlinequery
+
 
 kyycmd = KyyTelegramHandler(k).command
 kyymsg = KyyTelegramHandler(k).message

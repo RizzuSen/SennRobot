@@ -1,9 +1,20 @@
 import html
 import requests
+import re
 
-from telegram import ParseMode, Update, InlineKeyboardButton, InlineKeyboardMarkup
+from typing import Optional
+from telegram import (
+    ParseMode, 
+    Update, 
+    InlineKeyboardButton, 
+    InlineKeyboardMarkup, 
+    CallbackQuery,
+    Chat,
+    Bot,
+    User,
+)
 from telegram.error import BadRequest
-from telegram.ext import CallbackContext, CommandHandler, Filters, run_async, MessageHandler
+from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html
 
 from KyyRobot import DRAGONS, dispatcher, TOKEN
@@ -746,18 +757,14 @@ def invite(update: Update, context: CallbackContext):
 
 @connection_status
 def adminlist(update, context):
-    chat = update.effective_chat  # type: Optional[Chat] -> unused variable
     user = update.effective_user  # type: Optional[User]
-    args = context.args  # -> unused variable
     bot = context.bot
 
     if update.effective_message.chat.type == "private":
         send_message(update.effective_message, "This command only works in Groups.")
         return
 
-    chat = update.effective_chat
     chat_id = update.effective_chat.id
-    chat_name = update.effective_message.chat.title  # -> unused variable
 
     try:
         msg = update.effective_message.reply_text(
@@ -865,6 +872,7 @@ def button(update: Update, context: CallbackContext) -> str:
     user: Optional[User] = update.effective_user
     bot: Optional[Bot] = context.bot
     match = re.match(r"demote_\((.+?)\)", query.data)
+    chat = update.effective_chat
     if match:
         user_id = match.group(1)
         chat: Optional[Chat] = update.effective_chat
