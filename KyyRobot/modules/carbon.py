@@ -23,7 +23,7 @@ async def carbon_func(_, message):
     await m.delete()
     carbon.close()
 
-MEKI =  "https://telegra.ph/file/62113b446894ad24ac6a3.jpg"
+MEKI = "https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg"
 
 
 @pbot.on_message(filters.command("repo"))
