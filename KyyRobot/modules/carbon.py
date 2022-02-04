@@ -24,13 +24,10 @@ async def carbon_func(_, message):
     carbon.close()
 
 
-KONTOL = "https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg"
-
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
-    await message.reply_photo(
-        photo=f"{KONTOL}",
-        caption=f"""✨ **Hey I'm Nasty Robot** ✨
+    await message.reply_text(
+        f"""✨ **Hey I'm Nasty** ✨
 
 **Owner repo : [Kyy](https://t.me/IDnyaKosong)**
 **Python Version :** `{y()}`
@@ -46,7 +43,7 @@ async def repo(_, message):
                     InlineKeyboardButton(
                         "sᴜᴘᴘᴏʀᴛ", url="https://t.me/NastySupportt"), 
                     InlineKeyboardButton(
-                        "ᴄʜᴀɴɴᴇʟ", url="https://t.me/NastyProject")
+                        "ᴄʜᴀɴɴᴇʟ", url="https://t.me/NastyPeoject")
                 ]
             ]
         ),
