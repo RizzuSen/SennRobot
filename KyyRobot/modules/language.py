@@ -69,11 +69,53 @@ def lang_button(update: Update, _) -> None:
 
     query.message.edit_text(
         gs(chat.id, "set_chat_lang").format(get_language(lang)[:-3])
+        reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            "⬅️ Back",
+                            callback_data=f"back_",
+                        ),
+                    ]
+                ],
+            ),
+        )
     )
+    
+@user_admin
+def back_button(update: Update, _) -> None:
+    chat = update.effective_chat
+    query = update.callback_query
+
+    msg_text = gs(chat.id, "curr_chat_lang").format(
+        get_language(sql.get_chat_lang(chat.id))[:-3]
+    )
+
+    keyb = [
+        InlineKeyboardButton(
+            text=name,
+            callback_data=f"setLang_{code}",
+        )
+        for code, name in get_languages().items()
+    ]
+    keyb = list(paginate(keyb, 2))
+    keyb.append(
+        [
+            InlineKeyboardButton(
+                text="Help us in translations",
+                url="https://poeditor.com/join/project?hash=gXVtzsSQ88",
+            )
+        ]
+    )
+
+    if query.data == "back_":
+        query.message.edit_text(msg_text, reply_markup=InlineKeyboardMarkup(keyb))
 
 
 SETLANG_HANDLER = CommandHandler("setlang", set_lang, run_async=True)
 SETLANG_BUTTON_HANDLER = CallbackQueryHandler(lang_button, pattern=r"setLang_", run_async=True)
+BACK_BUTTON_HANDLER = CallbackQueryHandler(back_button, pattern=r"back_")
 
 dispatcher.add_handler(SETLANG_HANDLER)
 dispatcher.add_handler(SETLANG_BUTTON_HANDLER)
+dispatcher.add_handler(BACK_BUTTON_HANDLER)
