@@ -49,6 +49,5 @@ async def repo(_, message):
                         "ᴄʜᴀɴɴᴇʟ", url="https://t.me/NastyPeoject")
                 ]
             ]
-        ),
-        disable_web_page_preview=True
+        )
     )
