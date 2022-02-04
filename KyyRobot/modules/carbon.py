@@ -23,11 +23,14 @@ async def carbon_func(_, message):
     await m.delete()
     carbon.close()
 
+MEKI =  "https://telegra.ph/file/62113b446894ad24ac6a3.jpg"
+
 
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
-    await message.reply_text(
-        f"""✨ **Hey I'm Nasty** ✨
+    await message.reply_photo(
+        photo=MEKI,
+        caption=f"""✨ **Hey I'm Nasty** ✨
 
 **Owner repo : [Kyy](https://t.me/IDnyaKosong)**
 **Python Version :** `{y()}`
