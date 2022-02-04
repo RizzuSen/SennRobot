@@ -17,10 +17,28 @@ pm_start_text: |
   ────────────★─────────
   ✪ ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴍʏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs​.
   ✪ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ :​ @IDnyaKosong
-group_start_text: |
-  *👋🏻 Hi , I'm Nasty!*
   
-  *Started active since :* `{}`
+group_start_array1: |
+   *👋🏻 Hi sir {}, I'm Nasty!*
+
+   * Active since:* `{}`
+group_start_array2: |
+   *👋🏻 Hi you {}, I'm Nasty!*
+
+   * Active since:* `{}`
+group_start_array3: |
+   *👋🏻 Hi Darling {}, I'm Nasty!*
+
+   * Active since:* `{}`
+group_start_array4: |
+   *👋🏻 Hello {}, I'm Nasty!*
+
+   * Active since:* `{}`
+group_start_array5: |
+   *👋🏻 Hi, I'm Nasty!*
+   *Can I help you sir {}?*
+
+   * Active since:* `{}`
 
 pm_about_text: |
   ✺ Hey Darling I'm *Nasty*, a powerful group management bot built to help you manage your group easily. ✺
