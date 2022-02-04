@@ -24,7 +24,7 @@ async def carbon_func(_, message):
     carbon.close()
 
 
-KONTOL = "https://telegra.ph/file/d1b37552917a932acf672.jpg"
+KONTOL = "https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg"
 
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
