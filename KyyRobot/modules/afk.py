@@ -1,31 +1,33 @@
-import time
+import random, html
 
-from telegram import MessageEntity, ParseMode
-from telegram.error import BadRequest
-from telegram.ext import Filters
-
-from KyyRobot import REDIS
-from KyyRobot.modules.language import gs
-from KyyRobot.modules.helper_funcs.readable_time import get_readable_time
-from KyyRobot.modules.helper_funcs.decorators import Kyycmd, Kyymsg
-from KyyRobot.modules.redis.afk_redis import (
-    afk_reason,
-    end_afk,
-    is_user_afk,
-    start_afk,
+from KyyRobot import dispatcher
+from KyyRobot.modules.disable import (
+    DisableAbleCommandHandler,
+    DisableAbleMessageHandler,
 )
+from KyyRobot.modules.sql import afk_sql as sql
 from KyyRobot.modules.users import get_user_id
+from KyyRobot.modules.language import gs
+from telegram import MessageEntity, Update
+from telegram.error import BadRequest
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
+from telegram.ext import (
+    CallbackContext,
+    CallbackQueryHandler,
+    CommandHandler,
+    Filters,
+    MessageHandler,
+    run_async,
+)
 
 AFK_GROUP = 7
 AFK_REPLY_GROUP = 8
 
 
-@Kyycmd(command="afk", group=AFK_GROUP)
-@Kyymsg(Filters.regex("(?i)^brb"), friendly="afk", group=AFK_GROUP)
-def afk(update, _):
-    message = update.effective_message
-    args = message.text.split(None, 1)
+def afk(update: Update, context: CallbackContext):
+    args = update.effective_message.text.split(None, 1)
     user = update.effective_user
+    chat = update.effective_chat
 
     if not user:  # ignore channels
         return
@@ -33,55 +35,55 @@ def afk(update, _):
     if user.id in [777000, 1087968824]:
         return
 
-    start_afk_time = time.time()
-    reason = args[1] if len(args) >= 2 else "none"
-    start_afk(user.id, reason)
-    REDIS.set(f"afk_time_{user.id}", start_afk_time)
-    fname = user.first_name
+    notice = ""
+    if len(args) >= 2:
+        reason = args[1]
+        if len(reason) > 100:
+            reason = reason[:100]
+            notice = gs(chat.id, "reason_len")
+    else:
+        reason = ""
+
+    sql.set_afk(update.effective_user.id, reason)
+    fname = update.effective_user.first_name
     try:
-        message.reply_text(
-            f"See you later 👋 <code>{fname}</code>!", parse_mode=ParseMode.HTML
-        )
+        update.effective_message.reply_text(text=gs(update.effective_chat.id, "afk").format(fname, notice))
     except BadRequest:
         pass
 
 
-@Kyymsg((Filters.all & Filters.chat_type.groups), friendly="afk", group=AFK_GROUP)
-def no_longer_afk(update, _):
+def no_longer_afk(update: Update, context: CallbackContext):
     user = update.effective_user
+    chat = update.effective_chat
     message = update.effective_message
+
     if not user:  # ignore channels
         return
 
-    if not is_user_afk(user.id):  # Check if user is afk or not
-        return
-
-    the_heck = REDIS.get(f"afk_time_{user.id}")
-    if not the_heck:
-        return
-
-    end_afk_time = get_readable_time((time.time() - float(the_heck)))
-    REDIS.delete(f"afk_time_{user.id}")
-    res = end_afk(user.id)
+    res = sql.rm_afk(user.id)
     if res:
         if message.new_chat_members:  # dont say msg
             return
         firstname = update.effective_user.first_name
         try:
-            message.reply_text(
-                f"Welcome back <code>{firstname}</code>!\n\nYou were away for: <code>{end_afk_time}</code>",
-                parse_mode=ParseMode.HTML,
-            )
-        except BadRequest:
+            options = [
+                gs(update.effective_chat.id, "afk_array1"),
+                gs(update.effective_chat.id, "afk_array2"),
+                gs(update.effective_chat.id, "afk_array3"),
+                gs(update.effective_chat.id, "afk_array4"),
+                gs(update.effective_chat.id, "afk_array5"),
+                gs(update.effective_chat.id, "afk_array6"),
+                gs(update.effective_chat.id, "afk_array7"),
+                gs(update.effective_chat.id, "afk_array8"),
+            ]
+            chosen_option = random.choice(options)
+            update.effective_message.reply_text(chosen_option.format(firstname))
+        except:
             return
 
 
-@Kyymsg(
-    (Filters.all & Filters.chat_type.groups & ~Filters.update.edited_message),
-    friendly="afk",
-    group=AFK_REPLY_GROUP,
-)
-def reply_afk(update, context):
+def reply_afk(update: Update, context: CallbackContext):
+    bot = context.bot
     message = update.effective_message
     userc = update.effective_user
     userc_id = userc.id
@@ -102,31 +104,24 @@ def reply_afk(update, context):
                     return
                 chk_users.append(user_id)
 
-            elif ent.type == MessageEntity.MENTION:
-                user_id = get_user_id(
-                    message.text[ent.offset : ent.offset + ent.length]
-                )
-                if not user_id:
-                    # Should never happen, since for a user to become AFK they must have spoken. Maybe changed username?
-                    return
-
-                if user_id in chk_users:
-                    return
-                chk_users.append(user_id)
-
-                try:
-                    chat = context.bot.get_chat(user_id)
-                except BadRequest as e:
-                    print(
-                        "Error: Could not fetch userid {} for AFK module due to {}".format(
-                            user_id, e
-                        )
-                    )
-                    return
-                fst_name = chat.first_name
-
-            else:
+            if ent.type != MessageEntity.MENTION:
                 return
+
+            user_id = get_user_id(message.text[ent.offset : ent.offset + ent.length])
+            if not user_id:
+                # Should never happen, since for a user to become AFK they must have spoken. Maybe changed username?
+                return
+
+            if user_id in chk_users:
+                return
+            chk_users.append(user_id)
+
+            try:
+                chat = bot.get_chat(user_id)
+            except BadRequest:
+                print("Error: Could not fetch userid {} for AFK module".format(user_id))
+                return
+            fst_name = chat.first_name
 
             check_afk(update, context, user_id, fst_name, userc_id)
 
@@ -136,26 +131,39 @@ def reply_afk(update, context):
         check_afk(update, context, user_id, fst_name, userc_id)
 
 
-def check_afk(update, _, user_id: int, fst_name: int, userc_id: int):
-    if is_user_afk(user_id):
-        reason = afk_reason(user_id)
-        pussy = REDIS.get(f"afk_time_{user_id}")
-        if not pussy:
-            return
-
-        since_afk = get_readable_time((time.time() - float(pussy)))
+def check_afk(update, context, user_id, fst_name, userc_id):
+    if sql.is_afk(user_id):
+        user = sql.check_afk_status(user_id)
+        chat = update.effective_chat
         if int(userc_id) == int(user_id):
             return
-        if reason == "none":
-            res = f"<code>{fst_name}</code> is now away!\n\nLast seen: <code>{since_afk}</code>"
+        if not user.reason:
+            res = gs(chat.id, "afk_check").format(fst_name)
+            update.effective_message.reply_text(res)
         else:
-            res = f"<code>{fst_name}</code> is now away!\nReason: <code>{reason}</code>\n\nLast seen: <code>{since_afk}</code>"
-
-        update.effective_message.reply_text(res, parse_mode=ParseMode.HTML)
-
-
-def __gdpr__(user_id):
-    end_afk(user_id)
+            res = gs(chat.id, "afk_check_reason").format(
+                html.escape(fst_name), html.escape(user.reason)
+            )
+            update.effective_message.reply_text(res, parse_mode="html")
 
 
-__mod_name__ = "AFK"
+AFK_HANDLER = DisableAbleCommandHandler("afk", afk, run_async=True)
+AFK_REGEX_HANDLER = DisableAbleMessageHandler(
+    Filters.regex(r"^(?i)brb(.*)$"), afk, friendly="afk", run_async=True
+)
+NO_AFK_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, no_longer_afk)
+AFK_REPLY_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, reply_afk)
+
+dispatcher.add_handler(AFK_HANDLER, AFK_GROUP)
+dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
+dispatcher.add_handler(NO_AFK_HANDLER, AFK_GROUP)
+dispatcher.add_handler(AFK_REPLY_HANDLER, AFK_REPLY_GROUP)
+
+__mod_name__ = "Afk​"
+__command_list__ = ["afk"]
+__handlers__ = [
+    (AFK_HANDLER, AFK_GROUP),
+    (AFK_REGEX_HANDLER, AFK_GROUP),
+    (NO_AFK_HANDLER, AFK_GROUP),
+    (AFK_REPLY_HANDLER, AFK_REPLY_GROUP),
+]
