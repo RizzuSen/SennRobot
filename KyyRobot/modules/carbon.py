@@ -29,7 +29,7 @@ KONTOL = "https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg"
 @pbot.on_message(filters.command("repo"))
 async def repo(_, message):
     await message.reply_photo(
-        photo=KONTOL,
+        photo=f"{KONTOL}",
         caption=f"""✨ **Hey I'm Nasty Robot** ✨
 
 **Owner repo : [Kyy](https://t.me/IDnyaKosong)**
