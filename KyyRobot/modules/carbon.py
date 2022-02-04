@@ -46,7 +46,7 @@ async def repo(_, message):
                     InlineKeyboardButton(
                         "sᴜᴘᴘᴏʀᴛ", url="https://t.me/NastySupportt"), 
                     InlineKeyboardButton(
-                        "ᴄʜᴀɴɴᴇʟ", url="https://t.me/NastyPeoject")
+                        "ᴄʜᴀɴɴᴇʟ", url="https://t.me/NastyProject")
                 ]
             ]
         )
