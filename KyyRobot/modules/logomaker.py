@@ -114,7 +114,7 @@ async def logo_gen(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [ᴘʀɪᴍᴇ ᴍᴇɢᴀ](https://t.me/Nastymusiicbot)",
+            caption="Logo by [ɴᴀsᴛʏ](https://t.me/Nastymusiicbot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -197,7 +197,7 @@ async def logo_(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [ᴘʀɪᴍᴇ ᴍᴇɢᴀ](https://t.me/Nastymusiicbot)",
+            caption="Logo by [ɴᴀsᴛʏ](https://t.me/Nastymusiicbot)",
             force_document=False,
         )
         os.remove(flnme)
