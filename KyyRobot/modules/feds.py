@@ -1591,12 +1591,12 @@ def fed_chats(update: Update, context: CallbackContext):
     text = "<b>New chat joined the federation {}:</b>\n".format(info["fname"])
     for chats in getlist:
         try:
-            chat_name = dispatcher.bot.getChat(chats["fed_id"]).title
+            chat_name = dispatcher.bot.getChat(chats).title
         except Unauthorized:
-            sql.chat_leave_fed(chats["fed_id"])
+            sql.chat_leave_fed(chats)
             LOGGER.info(
                 "Chat {} has leave fed {} because I was kicked".format(
-                    chats["fed_id"],
+                    chats,
                     info["fname"],
                 ),
             )
