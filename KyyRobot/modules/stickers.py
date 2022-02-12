@@ -553,10 +553,10 @@ def getsticker(update: Update, context: CallbackContext):
     msg = update.effective_message
     chat_id = update.effective_chat.id
 
-    animated = msg.reply_to_message.sticker.is_animated == True
-    videos = msg.reply_to_message.sticker.is_video == True
-
     if msg.reply_to_message and msg.reply_to_message.sticker:
+        animated = msg.reply_to_message.sticker.is_animated == True
+        videos = msg.reply_to_message.sticker.is_video == True
+
         if not animated and not videos:
             file_id = msg.reply_to_message.sticker.file_id
             new_file = bot.get_file(file_id)
@@ -584,6 +584,7 @@ def getsticker(update: Update, context: CallbackContext):
             bot.sendChatAction(chat_id, "upload_video")
             bot.sendVideo(chat_id, video=open("sticker.webm", "rb"))
             os.remove("sticker.webm")
+        return
     else:
         update.effective_message.reply_text(
             "Please reply to a sticker for me to upload its PNG or TGS or WEBM for video sticker."
