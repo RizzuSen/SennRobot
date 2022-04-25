@@ -8,7 +8,7 @@ import sys
 import aiohttp
 import regex
 from aiohttp import ClientSession
-from PrimeMega import OWNER_ID, TOKEN, pbot
+from KyyRobot import OWNER_ID, TOKEN, pbot
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
