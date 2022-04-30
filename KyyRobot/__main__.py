@@ -87,7 +87,7 @@ Click on the button bellow to get description about specifics command."""
 KYY_IMG = "https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @IDnyaKosong \
+ You can support the project by contacting @xflyrzu \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -219,7 +219,7 @@ def start(update: Update, context: CallbackContext):
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "add_bot_to_group_button"), url="t.me/Nastymusiicbot?startgroup=new"),
+                                text=gs(chat.id, "add_bot_to_group_button"), url="t.me/Sentapibot?startgroup=new"),
                         ]
                     ]
                 ),
@@ -427,7 +427,7 @@ def kyy_about_callback(update, context):
                             InlineKeyboardButton(text=gs(chat.id, "inline_button"), switch_inline_query_current_chat=""),
                         ],
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/Nastymusiicbot?startgroup=new"),
+                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/Sentapibot?startgroup=new"),
                         ]
                     ]
                 ),
@@ -469,8 +469,8 @@ def kyy_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/NastySupportt"),
-                        InlineKeyboardButton(text=gs(chat.id, "updates_channel_link_button"), url="https://t.me/NastyProject"),
+                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/SenNotSupport"),
+                        InlineKeyboardButton(text=gs(chat.id, "updates_channel_link_button"), url="https://t.me/zusenpai"),
                     ],
                     [
                         InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="kyy_"),
@@ -548,7 +548,7 @@ def Source_about_callback(update, context):
                             InlineKeyboardButton(text=gs(chat.id, "inline_button"), switch_inline_query_current_chat=""),
                         ],
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/Nastymusiicbot?startgroup=new"),
+                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/Sentapibot?startgroup=new"),
                         ]
                     ]
                 ),
