@@ -50,8 +50,8 @@ pm_about_text: |
   ✪ Saya memiliki sistem pencatatan, daftar hitam, dan bahkan balasan yang telah ditentukan sebelumnya untuk kata kunci tertentu.
   ✪ Saya memeriksa izin admin sebelum menjalankan perintah apa pun dan hal lainnya
 
-  _Nasty dilisensikan di bawah GNU General Public License v3.0_
-  Klik tombol di bawah untuk mendapatkan bantuan dasar untuk Nasty.
+  _Senn dilisensikan di bawah GNU General Public License v3.0_
+  Klik tombol di bawah untuk mendapatkan bantuan dasar untuk Senn Robot.
 pm_about_admin_text: |
   *✺ Ayo buat grupmu sedikit efektif sekarang ✺*
 
@@ -70,13 +70,13 @@ pm_about_notes_text: |
   ✪ Anda dapat menyimpan pesan/media/audio atau apa pun sebagai catatan untuk mendapatkan catatan cukup gunakan # di awal kata"
   ✪ Anda juga dapat mengatur tombol untuk catatan dan filter (lihat menu bantuan)
 pm_about_support_text: |
-  *✺ Obrolan dukungan Nasty ✺*
+  *✺ Obrolan dukungan Senn Robot ✺*
 
   Bergabunglah dengan Grup/Saluran Dukungan Saya untuk melihat atau melaporkan masalah di Seira.
 pm_about_credit_text: |
-  *✺ Credits for Nasty ✺*
+  *✺ Credits for Senn Robot ✺*
 
-  Disini Developers Membuat Dan Memberi Inspirasi Untuk Membuat Robot Seira
+  Disini Developers Membuat Dan Memberi Inspirasi Untuk Membuat Senn Robot
 pm_help_text: |
   *✺ Klik tombol di bawah ini untuk mendapatkan deskripsi tentang perintah spesifik. ✺*
 pm_help_module_text: "Berikut adalah bantuan untuk modul *{}* :\n\n"
@@ -105,7 +105,7 @@ notes_button: "ᴄᴀᴛᴀᴛᴀɴ"
 source_button: "ᴄʜᴀᴛ ᴡɪᴛʜ ᴏᴡɴᴇʀ"
 help_button: "ʙᴀɴᴛᴜᴀɴ"
 back_button: "ᴋᴇᴍʙᴀʟɪ"
-about_button: "ᴛᴇɴᴛᴀɴɢ ɴᴀsᴛʏ"
+about_button: "ᴛᴇɴᴛᴀɴɢ ꜱᴇɴɴ ʀᴏʙᴏᴛ"
 inline_button: "ɪɴʟɪɴᴇ!​​"
 
 # MODULES
@@ -662,7 +662,7 @@ search_help: |
     ❂ /imdb <Nama film>*:* Dapatkan info lengkap tentang film dengan imdb.com
     ❂ Seira <query>*:* Seira menjawab pertanyaan
 
-    💡 Contoh : `Nasty di mana Jepang?`
+    💡 Contoh : `Senn di mana Jepang?`
 stickers_help: |
     ──「 Stiker 」──
 
