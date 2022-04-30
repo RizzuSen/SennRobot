@@ -16,32 +16,32 @@ pm_start_text: |
   × `{}` *ᴘᴇɴɢɢᴜɴᴀ, ᴅɪ sᴇʟᴜʀᴜʜ​* `{}` *ᴏʙʀᴏʟᴀɴ​.*
   ───────────★──────────
   ✪ ᴛᴇᴋᴀɴ /help ᴜɴᴛᴜᴋ ᴍᴇʟɪʜᴀᴛ ᴘᴇʀɪɴᴛᴀʜ sᴀʏᴀ ʏᴀɴɢ ᴛᴇʀsᴇᴅɪᴀ.
-  ✪ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ :​ @IDnyaKosong
+  ✪ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ :​ @xflyrzu
    
 group_start_array1: |
-   *👋🏻 Hai tuan {}, saya Nasty!*
+   *👋🏻 Hai tuan {}, saya Sen Robot!*
 
    * Aktif sejak:* `{}`
 group_start_array2: |
-   *👋🏻 Hai kamu {}, aku Nasty!*
+   *👋🏻 Hai kamu {}, aku Sen Robot!*
 
    * Aktif sejak:* `{}`
 group_start_array3: |
-   *👋🏻 Hai Sayang {}, Aku Nasty!*
+   *👋🏻 Hai Sayang {}, Aku Sen Robot!*
 
    * Aktif sejak:* `{}`
 group_start_array4: |
-   *👋🏻 Halo {}, Saya Nasty!*
+   *👋🏻 Halo {}, Saya Sen Robot!*
 
    * Aktif sejak:* `{}`
 group_start_array5: |
-   *👋🏻 Hai, Aku Nasty!*
+   *👋🏻 Hai, Aku Sen Robot!*
    *Ada yang bisa saya bantu tuan {}?*
 
    * Aktif sejak:* `{}`
 
 pm_about_text: |
-  ✺ Hai Sayang saya *Nasty*, bot manajemen grup yang kuat yang dibuat untuk membantu Anda mengelola grup dengan mudah. ✺
+  ✺ Hai Sayang saya *Sen Robot*, bot manajemen grup yang kuat yang dibuat untuk membantu Anda mengelola grup dengan mudah. ✺
 
   ✪ Saya dapat membatasi pengguna.
   ✪ Saya dapat menyapa pengguna dengan pesan selamat datang yang dapat disesuaikan dan bahkan menetapkan aturan grup.
@@ -55,7 +55,7 @@ pm_about_text: |
 pm_about_admin_text: |
   *✺ Ayo buat grupmu sedikit efektif sekarang ✺*
 
-  Selamat, Nasty sekarang siap untuk mengelola grup Anda.
+  Selamat, Sen sekarang siap untuk mengelola grup Anda.
 
   *Alat Admin*
   Alat Admin Dasar membantu Anda melindungi dan memperkuat grup Anda.
