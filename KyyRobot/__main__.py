@@ -84,7 +84,7 @@ def get_readable_time(seconds: int) -> str:
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-KYY_IMG = "https://telegra.ph/file/9cfdd23df00b814cd9ca3.jpg"
+KYY_IMG = "https://telegra.ph/file/ba1a59bcc6dad78333c1d.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @xflyrzu \
