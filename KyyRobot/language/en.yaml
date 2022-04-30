@@ -16,32 +16,32 @@ pm_start_text: |
   × `{}` *ᴜsᴇʀs, ᴀᴄʀᴏss​* `{}` *ᴄʜᴀᴛs​.*
   ────────────★─────────
   ✪ ʜɪᴛ /help ᴛᴏ sᴇᴇ ᴍʏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs​.
-  ✪ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ :​ @IDnyaKosong
+  ✪ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ʙʏ :​ @xflyrzu
   
 group_start_array1: |
-   *👋🏻 Hi sir {}, I'm Nasty!*
+   *👋🏻 Hi sir {}, I'm Senn Robot!*
 
    * Active since:* `{}`
 group_start_array2: |
-   *👋🏻 Hi you {}, I'm Nasty!*
+   *👋🏻 Hi you {}, I'm Senn Robot!*
 
    * Active since:* `{}`
 group_start_array3: |
-   *👋🏻 Hi Darling {}, I'm Nasty!*
+   *👋🏻 Hi Darling {}, I'm Senn Robot!*
 
    * Active since:* `{}`
 group_start_array4: |
-   *👋🏻 Hello {}, I'm Nasty!*
+   *👋🏻 Hello {}, I'm Senn Robot!*
 
    * Active since:* `{}`
 group_start_array5: |
-   *👋🏻 Hi, I'm Nasty!*
+   *👋🏻 Hi, I'm Senn Robot!*
    *Can I help you sir {}?*
 
    * Active since:* `{}`
 
 pm_about_text: |
-  ✺ Hey Darling I'm *Nasty*, a powerful group management bot built to help you manage your group easily. ✺
+  ✺ Hey Darling I'm *Senn Robot*, a powerful group management bot built to help you manage your group easily. ✺
 
   ✪ I can restrict users.
   ✪ I can greet users with customizable welcome messages and even set a group's rules.
@@ -55,7 +55,7 @@ pm_about_text: |
 pm_about_admin_text: |
   *✺ Let's make your group bit effective now ✺*
 
-  Congragulations, Nasty now ready to manage your group.
+  Congragulations, Senn Robot now ready to manage your group.
 
   *Admin Tools*
   Basic Admin tools help you to protect and powerup your group.
@@ -105,7 +105,7 @@ notes_button: "ɴᴏᴛᴇs"
 source_button: "ᴄʜᴀᴛ ᴡɪᴛʜ ᴏᴡɴᴇʀ"
 help_button: "ʜᴇʟᴘ"
 back_button: "ɢᴏ ʙᴀᴄᴋ"
-about_button: "ᴀʙᴏᴜᴛ ɴᴀsᴛʏ"
+about_button: "ᴀʙᴏᴜᴛ Senn Robot"
 inline_button: "ᴛʀʏ ɪɴʟɪɴᴇ!​​"
 
 # MODULES
